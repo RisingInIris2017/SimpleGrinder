@@ -1,0 +1,9 @@
+#Block
+tile.CoalGrinder.name=Coal Grinder
+tile.MashineCausing.name=Mashine Causing
+#Item
+item.potMash.name=Mashed Potatoes
+item.carrotMash.name=Mashed Carrots
+item.dustIron.name=Iron Dust
+item.dustGold.name=Gold Dust
+item.Flour.name=Flour

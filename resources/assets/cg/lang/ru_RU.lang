@@ -1,0 +1,9 @@
+#Block
+tile.CoalGrinder.name=Угленный гриндер
+tile.MashineCausing.name=Машинный корпус
+#Item
+item.potMash.name=Картофельное пюре
+item.carrotMash.name=Морковное пюре
+item.dustIron.name=Железная пыль
+item.dustGold.name=Золотая пыль
+item.Flour.name=Мука
