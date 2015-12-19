@@ -12,6 +12,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class VanillaRecipes {
 
 	public static void loadingInitRecipes() {
+		
 		ItemStack output;
 
 		output = new ItemStack(ModBlocks.MashineCausing);
