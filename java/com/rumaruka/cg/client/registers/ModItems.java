@@ -18,6 +18,7 @@ public class ModItems {
 	public static Item Flour;
 	public static ItemFood potMash;
 	public static ItemFood carrotMash;
+	
 		public static void reg() {
 		dustIron = new dustIron();
 		dustGold = new dustGold();
