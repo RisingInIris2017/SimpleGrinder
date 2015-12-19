@@ -15,6 +15,7 @@ public class GuiCoalGrinderII extends GuiContainer {
 
 	private ResourceLocation grindGUI = new ResourceLocation(Reference.MOD_ID+":"+"textures/gui/container/grindGui.png");
 	
+	
 	private TileEntityCoalGrinderII teCG;
 	private static final String __OBFID = "CL_00000758";
 	
