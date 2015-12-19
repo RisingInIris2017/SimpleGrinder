@@ -23,6 +23,7 @@ public class GrindRecipes {
 	private Map expaList = new HashMap();
 	private static final String __OBFID = "CL_00000085";
 
+
 	public static GrindRecipes grinding() {
 		return grindBase;
 	}
