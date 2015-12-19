@@ -29,6 +29,13 @@ public class VanillaRecipes {
 				"SPS",
 				'C', Blocks.cobblestone, 'I', Items.iron_ingot, 'M', ModBlocks.MashineCausing, 'S', Blocks.stone, 'P', Blocks.piston, 'R', Items.redstone
 		});
+		output = new ItemStack(ModBlocks.CoalGrinderII);
+		GameRegistry.addRecipe(output, new Object[]{
+				"IMI",
+				"IGI",
+				"SPS",
+				 'I', Items.iron_ingot, 'G', ModBlocks.CoalGrinder, 'S', Blocks.stone, 'P', Blocks.piston, 'M', ModBlocks.MashineCausing
+		});
 	}
 	
 }

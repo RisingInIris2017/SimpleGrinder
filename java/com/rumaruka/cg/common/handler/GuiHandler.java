@@ -1,8 +1,11 @@
 package com.rumaruka.cg.common.handler;
 
 import com.rumaruka.cg.client.gui.GuiCoalGrinder;
+import com.rumaruka.cg.client.gui.GuiCoalGrinderII;
 import com.rumaruka.cg.common.container.ContainerCoalGrinder;
+import com.rumaruka.cg.common.container.ContainerCoalGrinderII;
 import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinder;
+import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
 import com.rumaruka.cg.reference.GUId;
 
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -18,6 +21,11 @@ public class GuiHandler implements IGuiHandler {
 	            TileEntityCoalGrinder teCG = (TileEntityCoalGrinder) world.getTileEntity(x, y, z);
 	            return new ContainerCoalGrinder(player.inventory, teCG);
 	        }
+		 else if (ID == GUId.CoalGrinderII.ordinal())
+		 {
+			 TileEntityCoalGrinderII teCGII = (TileEntityCoalGrinderII) world.getTileEntity(x, y, z);
+			 return new ContainerCoalGrinderII(player.inventory, teCGII);
+		 }
 		return null;
 	}
 
@@ -28,6 +36,11 @@ public class GuiHandler implements IGuiHandler {
             TileEntityCoalGrinder teCG = (TileEntityCoalGrinder) world.getTileEntity(x, y, z);
             return new GuiCoalGrinder(player.inventory, teCG);
         }
+		 else if (ID == GUId.CoalGrinderII.ordinal())
+		 {
+			 TileEntityCoalGrinderII teCGII = (TileEntityCoalGrinderII) world.getTileEntity(x, y, z);
+			 return new GuiCoalGrinderII(player.inventory, teCGII);
+		 }
 		return null;
 	}
 

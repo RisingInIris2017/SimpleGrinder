@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.rumaruka.cg.cg;
 import com.rumaruka.cg.client.registers.ModBlocks;
-import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinder;
+import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
 import com.rumaruka.cg.reference.GUId;
 import com.rumaruka.cg.reference.Reference;
 
@@ -14,35 +14,30 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class CoalGrinder extends BlockContainer {
+public class CoalGrinderII extends BlockContainer {
+
 	private final Random field_149933_a = new Random();
-	private final boolean offon;
 	private static boolean field_149934_M;
+	private final boolean offon;
 	@SideOnly(Side.CLIENT)
 	private IIcon top;
 	@SideOnly(Side.CLIENT)
 	private IIcon front;
-
 	
-	
-	public CoalGrinder(boolean b) {
-		
+	public CoalGrinderII(boolean b ) {
 		super(Material.rock);
-		setBlockName("CoalGrinderI_tier");
+		setBlockName("CoalGrinderII");
 		setStepSound(soundTypePiston);
 		setHarvestLevel("pickaxe", 0);
 		this.offon = b;
@@ -56,21 +51,20 @@ public class CoalGrinder extends BlockContainer {
 	    @SideOnly(Side.CLIENT)
 	    public void registerBlockIcons(IIconRegister IIcR)
 	    {
-	        this.blockIcon = IIcR.registerIcon(Reference.MOD_ID+":"+"grind_side");
-	        this.front = IIcR.registerIcon(this.offon ? Reference.MOD_ID+":"+"grind_front_on" : Reference.MOD_ID+":"+"grind_front_off");
-	        this.top = IIcR.registerIcon(Reference.MOD_ID+":"+"grind_top");
+	        this.blockIcon = IIcR.registerIcon(Reference.MOD_ID+":"+"notte");
+	        this.front = IIcR.registerIcon(this.offon ? Reference.MOD_ID+":"+"notte" : Reference.MOD_ID+":"+"notte");
+	        this.top = IIcR.registerIcon(Reference.MOD_ID+":"+"notte");
 	    }
 	@Override
 	 public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	    {
-	        return Item.getItemFromBlock(ModBlocks.CoalGrinder);
+	        return Item.getItemFromBlock(ModBlocks.CoalGrinderII);
 	    }
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		// TODO Auto-generated method stub
-		return new TileEntityCoalGrinder();
+		return new TileEntityCoalGrinderII();
 	}
-
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int faceHit, float par7,
 			float par8, float par9) {
@@ -78,8 +72,8 @@ public class CoalGrinder extends BlockContainer {
 			return false;
 		} else {
 			if (!world.isRemote) {
-				if (world.getTileEntity(x, y, z) instanceof TileEntityCoalGrinder) {
-					player.openGui(cg.instance, GUId.CoalGrinder.ordinal(), world, x, y, z);
+				if (world.getTileEntity(x, y, z) instanceof TileEntityCoalGrinderII) {
+					player.openGui(cg.instance, GUId.CoalGrinderII.ordinal(), world, x, y, z);
 				}
 			}
 
@@ -108,7 +102,7 @@ public class CoalGrinder extends BlockContainer {
 		}
 
 		if (p_149689_6_.hasDisplayName()) {
-			((TileEntityCoalGrinder) p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_))
+			((TileEntityCoalGrinderII) p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_))
 					.func_145951_a(p_149689_6_.getDisplayName());
 		}
 	}
@@ -116,7 +110,7 @@ public class CoalGrinder extends BlockContainer {
 	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,
 			int p_149749_6_) {
 		if (!field_149934_M) {
-			TileEntityCoalGrinder tileentityfurnace = (TileEntityCoalGrinder) p_149749_1_.getTileEntity(p_149749_2_,
+			TileEntityCoalGrinderII tileentityfurnace = (TileEntityCoalGrinderII) p_149749_1_.getTileEntity(p_149749_2_,
 					p_149749_3_, p_149749_4_);
 
 			if (tileentityfurnace != null) {
@@ -201,11 +195,11 @@ public class CoalGrinder extends BlockContainer {
 
 	        if (p_149931_0_)
 	        {
-	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.lit_grind);
+	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.lit_grindII);
 	        }
 	        else
 	        {
-	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.CoalGrinder);
+	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.CoalGrinderII);
 	        }
 
 	        field_149934_M = false;

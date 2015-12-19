@@ -1,5 +1,11 @@
+#NEI
+nei.recipe.coalgrinder=Дробление
+#Gui
+container.Coal Grinder=Угленный гриндер 1 уровня
+container.Coal GrinderII=Угленный гриндер 2 уровня
 #Block
-tile.CoalGrinder.name=Угленный гриндер
+tile.CoalGrinderI_tier.name=Угленный гриндер 1 уровня
+tile.CoalGrinderII.name=Угленный гриндер 2 уровня
 tile.MashineCausing.name=Машинный корпус
 #Item
 item.potMash.name=Картофельное пюре

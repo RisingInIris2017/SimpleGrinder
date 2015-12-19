@@ -1,12 +1,11 @@
 package com.rumaruka.cg.common.tileentity;
 
 import com.rumaruka.cg.client.recipes.GrindRecipes;
-import com.rumaruka.cg.common.blocks.CoalGrinder;
+import com.rumaruka.cg.common.blocks.CoalGrinderII;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -22,7 +21,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityCoalGrinder extends TileEntity implements ISidedInventory {
+public class TileEntityCoalGrinderII extends TileEntity implements ISidedInventory{
 	private static final int[] slotsTop = new int[] { 0 };
 	private static final int[] slotsBottom = new int[] { 2, 1 };
 	private static final int[] slotsSides = new int[] { 1 };
@@ -92,7 +91,7 @@ public class TileEntityCoalGrinder extends TileEntity implements ISidedInventory
 	 * Returns the name of the inventory
 	 */
 	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.field_145958_o : "container.Coal Grinder";
+		return this.hasCustomInventoryName() ? this.field_145958_o : "container.Coal GrinderII";
 	}
 
 	/**
@@ -160,13 +159,13 @@ public class TileEntityCoalGrinder extends TileEntity implements ISidedInventory
 
 	@SideOnly(Side.CLIENT)
 	public int getCookProgressScaled(int p_145953_1_) {
-		return this.grindCookTime * p_145953_1_ / 250;
+		return this.grindCookTime * p_145953_1_ / 150;
 	}
 
 	@SideOnly(Side.CLIENT)
 	public int getBurnTimeRemainingScaled(int p_145955_1_) {
 		if (this.currentItemBurnTime == 0) {
-			this.currentItemBurnTime = 250;
+			this.currentItemBurnTime = 150;
 		}
 
 		return this.grindBurnTime * p_145955_1_ / this.currentItemBurnTime;
@@ -206,7 +205,7 @@ public class TileEntityCoalGrinder extends TileEntity implements ISidedInventory
 				if (this.isBurning() && this.canGrind()) {
 					++this.grindCookTime;
 
-					if (this.grindCookTime == 250) {
+					if (this.grindCookTime == 150) {
 						this.grindCookTime = 0;
 						this.grindItem();
 						flag1 = true;
@@ -216,7 +215,7 @@ public class TileEntityCoalGrinder extends TileEntity implements ISidedInventory
 				}
 				if (flag != this.grindBurnTime > 0) {
 					flag1 = true;
-					CoalGrinder.updateGrindBlockState(this.grindBurnTime > 0, this.worldObj, this.xCoord, this.yCoord,
+					CoalGrinderII.updateGrindBlockState(this.grindBurnTime > 0, this.worldObj, this.xCoord, this.yCoord,
 							this.zCoord);
 				}
 			}

@@ -1,5 +1,10 @@
+#NEI
+nei.recipe.coalgrinder=Grinding
+#Gui
+container.Coal Grinder=Coal Grinder I Tier
 #Block
-tile.CoalGrinder.name=Coal Grinder
+tile.CoalGrinderI_tier.name=Coal Grinder I Tier
+tile.CoalGrinderII.name=Coal Grinder II Tier
 tile.MashineCausing.name=Mashine Causing
 #Item
 item.potMash.name=Mashed Potatoes

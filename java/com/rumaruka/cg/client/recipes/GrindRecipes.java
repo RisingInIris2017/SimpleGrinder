@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.ibm.icu.text.MessagePatternUtil.VariantNode;
 import com.rumaruka.cg.client.registers.ModItems;
 
 import net.minecraft.block.Block;
@@ -43,6 +44,7 @@ public class GrindRecipes {
 		this.grindMaterial(new ItemStack(Items.bone), new ItemStack(Items.dye,10,15), 4.8F);
 		this.grindMaterial(new ItemStack(Items.potato), new ItemStack(ModItems.potMash,2), 4.8F);
 		this.grindMaterial(new ItemStack(Items.carrot), new ItemStack(ModItems.carrotMash,2), 4.8F);
+		
 		
 	}
 
