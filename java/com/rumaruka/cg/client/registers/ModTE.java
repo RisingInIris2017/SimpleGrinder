@@ -8,7 +8,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModTE {
 
 	
-	
 public static void reg(){
 	GameRegistry.registerTileEntity(TileEntityCoalGrinder.class, "TileEntityCoalGrinder");
 	GameRegistry.registerTileEntity(TileEntityCoalGrinderII.class, "TileEntityCoalGrinderII");
