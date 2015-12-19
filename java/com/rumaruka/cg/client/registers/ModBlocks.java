@@ -16,6 +16,7 @@ public class ModBlocks {
 	public static Block lit_grindII;
 	
 	public static void reg(){
+		
 		lit_grind = new CoalGrinder(true).setHardness(3.5F).setLightLevel(0.875F);
 		CoalGrinder = new CoalGrinder(false).setHardness(3.5F).setCreativeTab(CreativeTabs.tabDecorations);
 		lit_grindII = new CoalGrinderII(true).setHardness(3.5F).setLightLevel(0.875F);;
