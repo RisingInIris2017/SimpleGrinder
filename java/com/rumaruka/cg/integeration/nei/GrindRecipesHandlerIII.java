@@ -7,34 +7,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import com.rumaruka.cg.client.gui.GuiCoalGrinder;
-import com.rumaruka.cg.client.recipes.GrindRecipes;
-import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinder;
-import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
-import com.rumaruka.cg.reference.Reference;
-
 import java.util.Map.Entry;
-
+import com.rumaruka.cg.client.gui.GuiCoalGrinderIII;
+import com.rumaruka.cg.client.recipes.GrindOnlyForIIITier;
+import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderIII;
+import com.rumaruka.cg.reference.Reference;
 import codechicken.nei.ItemList;
 import codechicken.nei.NEIClientUtils;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
-
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import codechicken.nei.recipe.FurnaceRecipeHandler.FuelPair;
-import codechicken.nei.recipe.FurnaceRecipeHandler.SmeltingPair;
 import codechicken.nei.recipe.TemplateRecipeHandler.CachedRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler.RecipeTransferRect;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
-public class GrindingRecipesHandler extends TemplateRecipeHandler {
+public class GrindRecipesHandlerIII extends TemplateRecipeHandler {
 	
 	
 	
@@ -82,12 +73,12 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public Class<? extends GuiContainer> getGuiClass() {
-		return GuiCoalGrinder.class;
+		return GuiCoalGrinderIII.class;
 	}
 
 	@Override
 	public String getRecipeName() {
-		return NEIClientUtils.translate("recipe.coalgrinder");
+		return NEIClientUtils.translate("recipe.coalgrinderIII");
 	}
 
 	@Override
@@ -99,8 +90,8 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
-		if (outputId.equals("grinding") && getClass() == GrindingRecipesHandler.class) {
-			Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) GrindRecipes.grinding().getSmeltingList();
+		if (outputId.equals("grinding") && getClass() == GrindRecipesHandlerIII.class) {
+			Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) GrindOnlyForIIITier.grinding().getSmeltingList();
 			for (Entry<ItemStack, ItemStack> recipe : recipes.entrySet())
 				arecipes.add(new SmeltingPair(recipe.getKey(), recipe.getValue()));
 		} else
@@ -109,7 +100,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
-		Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) GrindRecipes.grinding().getSmeltingList();
+		Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) GrindOnlyForIIITier.grinding().getSmeltingList();
 		for (Entry<ItemStack, ItemStack> recipe : recipes.entrySet())
 			if (NEIServerUtils.areStacksSameType(recipe.getValue(), result))
 				arecipes.add(new SmeltingPair(recipe.getKey(), recipe.getValue()));
@@ -117,7 +108,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		if (inputId.equals("fuel") && getClass() == GrindingRecipesHandler.class) 
+		if (inputId.equals("fuel") && getClass() == GrindRecipesHandlerIII.class) 
 			loadCraftingRecipes("smelting");
 		else
 			super.loadUsageRecipes(inputId, ingredients);
@@ -125,7 +116,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) GrindRecipes.grinding().getSmeltingList();
+		Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) GrindOnlyForIIITier.grinding().getSmeltingList();
 		for (Entry<ItemStack, ItemStack> recipe : recipes.entrySet())
 			if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getKey(), ingredient)) {
 				SmeltingPair arecipe = new SmeltingPair(recipe.getKey(), recipe.getValue());
@@ -162,7 +153,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 		Set<Item> efuels = excludedFuels();
 		for (ItemStack item : ItemList.items)
 			if (!efuels.contains(item.getItem())) {
-				int burnTime = TileEntityCoalGrinder.getItemBurnTime(item);
+				int burnTime = TileEntityCoalGrinderIII.getItemBurnTime(item);
 				if (burnTime > 0)
 					afuels.add(new FuelPair(item.copy(), burnTime));
 			}

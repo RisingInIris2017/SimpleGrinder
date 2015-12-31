@@ -7,34 +7,29 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import com.rumaruka.cg.client.gui.GuiCoalGrinder;
-import com.rumaruka.cg.client.recipes.GrindRecipes;
-import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinder;
-import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
-import com.rumaruka.cg.reference.Reference;
-
 import java.util.Map.Entry;
+
+import com.rumaruka.cg.client.gui.GuiCoalGrinderII;
+import com.rumaruka.cg.client.recipes.GrindRecipes;
+import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
+import com.rumaruka.cg.integeration.nei.GrindingRecipesHandler.FuelPair;
+import com.rumaruka.cg.integeration.nei.GrindingRecipesHandler.SmeltingPair;
+import com.rumaruka.cg.reference.Reference;
 
 import codechicken.nei.ItemList;
 import codechicken.nei.NEIClientUtils;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
-
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import codechicken.nei.recipe.FurnaceRecipeHandler.FuelPair;
-import codechicken.nei.recipe.FurnaceRecipeHandler.SmeltingPair;
 import codechicken.nei.recipe.TemplateRecipeHandler.CachedRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler.RecipeTransferRect;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 
-public class GrindingRecipesHandler extends TemplateRecipeHandler {
+public class GrindingRecipesHandlerII extends TemplateRecipeHandler {
 	
 	
 	
@@ -82,7 +77,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public Class<? extends GuiContainer> getGuiClass() {
-		return GuiCoalGrinder.class;
+		return GuiCoalGrinderII.class;
 	}
 
 	@Override
@@ -99,7 +94,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
-		if (outputId.equals("grinding") && getClass() == GrindingRecipesHandler.class) {
+		if (outputId.equals("grinding") && getClass() == GrindingRecipesHandlerII.class) {
 			Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) GrindRecipes.grinding().getSmeltingList();
 			for (Entry<ItemStack, ItemStack> recipe : recipes.entrySet())
 				arecipes.add(new SmeltingPair(recipe.getKey(), recipe.getValue()));
@@ -117,7 +112,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(String inputId, Object... ingredients) {
-		if (inputId.equals("fuel") && getClass() == GrindingRecipesHandler.class) 
+		if (inputId.equals("fuel") && getClass() == GrindingRecipesHandlerII.class) 
 			loadCraftingRecipes("smelting");
 		else
 			super.loadUsageRecipes(inputId, ingredients);
@@ -162,7 +157,7 @@ public class GrindingRecipesHandler extends TemplateRecipeHandler {
 		Set<Item> efuels = excludedFuels();
 		for (ItemStack item : ItemList.items)
 			if (!efuels.contains(item.getItem())) {
-				int burnTime = TileEntityCoalGrinder.getItemBurnTime(item);
+				int burnTime = TileEntityCoalGrinderII.getItemBurnTime(item);
 				if (burnTime > 0)
 					afuels.add(new FuelPair(item.copy(), burnTime));
 			}

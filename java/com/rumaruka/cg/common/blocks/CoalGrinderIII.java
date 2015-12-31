@@ -4,10 +4,9 @@ import java.util.Random;
 
 import com.rumaruka.cg.cg;
 import com.rumaruka.cg.client.registers.ModBlocks;
-import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
+import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderIII;
 import com.rumaruka.cg.reference.GUId;
 import com.rumaruka.cg.reference.Reference;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -27,8 +26,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class CoalGrinderII extends BlockContainer {
-
+public class CoalGrinderIII extends BlockContainer {
 	private final Random field_149933_a = new Random();
 	private static boolean field_149934_M;
 	private final boolean offon;
@@ -36,37 +34,39 @@ public class CoalGrinderII extends BlockContainer {
 	private IIcon top;
 	@SideOnly(Side.CLIENT)
 	private IIcon front;
-	
-	public CoalGrinderII(boolean b ) {
+	public CoalGrinderIII(boolean b ) {
 		super(Material.rock);
-		setBlockName("CoalGrinderII");
+		setBlockName("CoalGrinderIII");
 		setStepSound(soundTypePiston);
 		setHarvestLevel("pickaxe", 0);
 		this.offon = b;
 	}
-	 @SideOnly(Side.CLIENT)
-	    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
-	    {
-	        return p_149691_1_ == 1 ? this.top : (p_149691_1_ == 0 ? this.top : (p_149691_1_ != p_149691_2_ ? this.blockIcon : this.front));
-	    }
+	
+	@SideOnly(Side.CLIENT)
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
+    {
+        return p_149691_1_ == 1 ? this.top : (p_149691_1_ == 0 ? this.top : (p_149691_1_ != p_149691_2_ ? this.blockIcon : this.front));
+    }
 
-	    @SideOnly(Side.CLIENT)
-	    public void registerBlockIcons(IIconRegister IIcR)
-	    {
-	        this.blockIcon = IIcR.registerIcon(Reference.MOD_ID+":"+"grindII_side");
-	        this.front = IIcR.registerIcon(this.offon ? Reference.MOD_ID+":"+"grindII_on" : Reference.MOD_ID+":"+"grindII_off");
-	        this.top = IIcR.registerIcon(Reference.MOD_ID+":"+"grindII_side");
-	    }
-	@Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister IIcR)
+    {
+        this.blockIcon = IIcR.registerIcon(Reference.MOD_ID+":"+"te");
+        this.front = IIcR.registerIcon(this.offon ? Reference.MOD_ID+":"+"t" : Reference.MOD_ID+":"+"t");
+        this.top = IIcR.registerIcon(Reference.MOD_ID+":"+"te");
+    }
+    @Override
 	 public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
 	    {
-	        return Item.getItemFromBlock(ModBlocks.CoalGrinderII);
+	        return Item.getItemFromBlock(ModBlocks.CoalGrinderIII);
 	    }
+
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		// TODO Auto-generated method stub
-		return new TileEntityCoalGrinderII();
+		return new TileEntityCoalGrinderIII();
 	}
+
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int faceHit, float par7,
 			float par8, float par9) {
@@ -74,8 +74,8 @@ public class CoalGrinderII extends BlockContainer {
 			return false;
 		} else {
 			if (!world.isRemote) {
-				if (world.getTileEntity(x, y, z) instanceof TileEntityCoalGrinderII) {
-					player.openGui(cg.instance, GUId.CoalGrinderII.ordinal(), world, x, y, z);
+				if (world.getTileEntity(x, y, z) instanceof TileEntityCoalGrinderIII) {
+					player.openGui(cg.instance, GUId.CoalGrinderIII.ordinal(), world, x, y, z);
 				}
 			}
 
@@ -104,7 +104,7 @@ public class CoalGrinderII extends BlockContainer {
 		}
 
 		if (p_149689_6_.hasDisplayName()) {
-			((TileEntityCoalGrinderII) p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_))
+			((TileEntityCoalGrinderIII) p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_))
 					.func_145951_a(p_149689_6_.getDisplayName());
 		}
 	}
@@ -112,7 +112,7 @@ public class CoalGrinderII extends BlockContainer {
 	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,
 			int p_149749_6_) {
 		if (!field_149934_M) {
-			TileEntityCoalGrinderII tileentityfurnace = (TileEntityCoalGrinderII) p_149749_1_.getTileEntity(p_149749_2_,
+			TileEntityCoalGrinderIII tileentityfurnace = (TileEntityCoalGrinderIII) p_149749_1_.getTileEntity(p_149749_2_,
 					p_149749_3_, p_149749_4_);
 
 			if (tileentityfurnace != null) {
@@ -197,11 +197,11 @@ public class CoalGrinderII extends BlockContainer {
 
 	        if (p_149931_0_)
 	        {
-	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.lit_grindII);
+	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.lit_grindIII);
 	        }
 	        else
 	        {
-	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.CoalGrinderII);
+	            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ModBlocks.CoalGrinderIII);
 	        }
 
 	        field_149934_M = false;
@@ -212,7 +212,6 @@ public class CoalGrinderII extends BlockContainer {
 	            tileentity.validate();
 	            p_149931_1_.setTileEntity(p_149931_2_, p_149931_3_, p_149931_4_, tileentity);
 	        }
-	        
 	    }
 	   public boolean hasComparatorInputOverride()
 	    {
@@ -222,6 +221,8 @@ public class CoalGrinderII extends BlockContainer {
 	    {
 	        return Container.calcRedstoneFromInventory((IInventory)p_149736_1_.getTileEntity(p_149736_2_, p_149736_3_, p_149736_4_));
 	    }
+	   
 
 
 }
+

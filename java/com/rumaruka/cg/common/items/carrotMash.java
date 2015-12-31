@@ -1,5 +1,7 @@
 package com.rumaruka.cg.common.items;
 
+import com.rumaruka.cg.client.gui.creativetabs.CreativeTabsSG;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
@@ -40,7 +42,7 @@ public class carrotMash extends ItemFood {
 		this.healAmount = p_i45339_1_;
 		this.isWolfsFavoriteMeat = p_i45339_3_;
 		this.saturationModifier = p_i45339_2_;
-		this.setCreativeTab(CreativeTabs.tabFood);
+		this.setCreativeTab(CreativeTabsSG.SG_TAB);
 	}
 	public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_) {
 		--p_77654_1_.stackSize;

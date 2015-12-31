@@ -1,5 +1,6 @@
 package com.rumaruka.cg.common.blocks;
 
+import com.rumaruka.cg.client.gui.creativetabs.CreativeTabsSG;
 import com.rumaruka.cg.reference.Reference;
 
 import net.minecraft.block.Block;
@@ -17,7 +18,7 @@ public class MashineCausing extends Block {
 
 	public MashineCausing( ) {
 		super(Material.rock);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabsSG.SG_TAB);
 		setBlockTextureName(Reference.MOD_ID+":"+"MashineCausing");
 		setBlockName("MashineCausing");
 		setHardness(3.5F);

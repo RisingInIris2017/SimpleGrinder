@@ -1,9 +1,10 @@
 package com.rumaruka.cg.common.container;
 
-import com.rumaruka.cg.client.recipes.GrindRecipes;
+
+import com.rumaruka.cg.client.recipes.GrindOnlyForIIITier;
 import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinder;
 import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
-
+import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderIII;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,18 +15,18 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
-public class ContainerCoalGrinderII extends Container {
+public class ContainerCoalGrinderIII extends Container {
 
-	private TileEntityCoalGrinderII tileCoalGrinderII;
+	private TileEntityCoalGrinderIII tileCoalGrinderIII;
 	
     private int lastCookTime;
     private int lastBurnTime;
     private int lastItemBurnTime;
     private static final String __OBFID = "CL_00001748";
 
-    public ContainerCoalGrinderII(InventoryPlayer p_i1812_1_, TileEntityCoalGrinderII p_i1812_2_)
+    public ContainerCoalGrinderIII(InventoryPlayer p_i1812_1_, TileEntityCoalGrinderIII p_i1812_2_)
     {
-        this.tileCoalGrinderII = p_i1812_2_;
+        this.tileCoalGrinderIII = p_i1812_2_;
         this.addSlotToContainer(new Slot(p_i1812_2_, 0, 56, 17));
         this.addSlotToContainer(new Slot(p_i1812_2_, 1, 56, 53));
         this.addSlotToContainer(new SlotFurnace(p_i1812_1_.player, p_i1812_2_, 2, 116, 35));
@@ -50,9 +51,9 @@ public class ContainerCoalGrinderII extends Container {
 	public void addCraftingToCrafters(ICrafting p_75132_1_)
     {
         super.addCraftingToCrafters(p_75132_1_);
-        p_75132_1_.sendProgressBarUpdate(this, 0, this.tileCoalGrinderII.grindCookTime);
-        p_75132_1_.sendProgressBarUpdate(this, 1, this.tileCoalGrinderII.grindBurnTime);
-        p_75132_1_.sendProgressBarUpdate(this, 2, this.tileCoalGrinderII.currentItemBurnTime);
+        p_75132_1_.sendProgressBarUpdate(this, 0, this.tileCoalGrinderIII.grindCookTime);
+        p_75132_1_.sendProgressBarUpdate(this, 1, this.tileCoalGrinderIII.grindBurnTime);
+        p_75132_1_.sendProgressBarUpdate(this, 2, this.tileCoalGrinderIII.currentItemBurnTime);
     }
 
     /**
@@ -66,25 +67,25 @@ public class ContainerCoalGrinderII extends Container {
         {
             ICrafting icrafting = (ICrafting)this.crafters.get(i);
 
-            if (this.lastCookTime != this.tileCoalGrinderII.grindCookTime)
+            if (this.lastCookTime != this.tileCoalGrinderIII.grindCookTime)
             {
-                icrafting.sendProgressBarUpdate(this, 0, this.tileCoalGrinderII.grindCookTime);
+                icrafting.sendProgressBarUpdate(this, 0, this.tileCoalGrinderIII.grindCookTime);
             }
 
-            if (this.lastBurnTime != this.tileCoalGrinderII.grindBurnTime)
+            if (this.lastBurnTime != this.tileCoalGrinderIII.grindBurnTime)
             {
-                icrafting.sendProgressBarUpdate(this, 1, this.tileCoalGrinderII.grindBurnTime);
+                icrafting.sendProgressBarUpdate(this, 1, this.tileCoalGrinderIII.grindBurnTime);
             }
 
-            if (this.lastItemBurnTime != this.tileCoalGrinderII.currentItemBurnTime)
+            if (this.lastItemBurnTime != this.tileCoalGrinderIII.currentItemBurnTime)
             {
-                icrafting.sendProgressBarUpdate(this, 2, this.tileCoalGrinderII.currentItemBurnTime);
+                icrafting.sendProgressBarUpdate(this, 2, this.tileCoalGrinderIII.currentItemBurnTime);
             }
         }
 
-        this.lastCookTime = this.tileCoalGrinderII.grindCookTime;
-        this.lastBurnTime = this.tileCoalGrinderII.grindBurnTime;
-        this.lastItemBurnTime = this.tileCoalGrinderII.currentItemBurnTime;
+        this.lastCookTime = this.tileCoalGrinderIII.grindCookTime;
+        this.lastBurnTime = this.tileCoalGrinderIII.grindBurnTime;
+        this.lastItemBurnTime = this.tileCoalGrinderIII.currentItemBurnTime;
     }
 
     @SideOnly(Side.CLIENT)
@@ -92,24 +93,24 @@ public class ContainerCoalGrinderII extends Container {
     {
         if (p_75137_1_ == 0)
         {
-            this.tileCoalGrinderII.grindCookTime = p_75137_2_;
+            this.tileCoalGrinderIII.grindCookTime = p_75137_2_;
         }
 
         if (p_75137_1_ == 1)
         {
-            this.tileCoalGrinderII.grindBurnTime = p_75137_2_;
+            this.tileCoalGrinderIII.grindBurnTime = p_75137_2_;
         }
 
         if (p_75137_1_ == 2)
         {
-            this.tileCoalGrinderII.currentItemBurnTime = p_75137_2_;
+            this.tileCoalGrinderIII.currentItemBurnTime = p_75137_2_;
         }
     }
     
 
     public boolean canInteractWith(EntityPlayer p_75145_1_)
     {
-        return this.tileCoalGrinderII.isUseableByPlayer(p_75145_1_);
+        return this.tileCoalGrinderIII.isUseableByPlayer(p_75145_1_);
     }
 
     /**
@@ -136,7 +137,7 @@ public class ContainerCoalGrinderII extends Container {
             }
             else if (p_82846_2_ != 1 && p_82846_2_ != 0)
             {
-                if (GrindRecipes.grinding().getSmeltingResult(itemstack1) != null)
+                if (GrindOnlyForIIITier.grinding().getSmeltingResult(itemstack1) != null)
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {

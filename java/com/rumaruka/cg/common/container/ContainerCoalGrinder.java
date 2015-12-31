@@ -2,6 +2,7 @@ package com.rumaruka.cg.common.container;
 
 import com.rumaruka.cg.client.recipes.GrindRecipes;
 import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinder;
+import com.rumaruka.cg.common.tileentity.TileEntityCoalGrinderII;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,6 +19,7 @@ import net.minecraft.item.ItemStack;
 public class ContainerCoalGrinder extends Container {
 
 	private TileEntityCoalGrinder tileCoalGrinder;
+	
     private int lastCookTime;
     private int lastBurnTime;
     private int lastItemBurnTime;
@@ -45,7 +47,9 @@ public class ContainerCoalGrinder extends Container {
         }
     }
 
-    public void addCraftingToCrafters(ICrafting p_75132_1_)
+    
+
+	public void addCraftingToCrafters(ICrafting p_75132_1_)
     {
         super.addCraftingToCrafters(p_75132_1_);
         p_75132_1_.sendProgressBarUpdate(this, 0, this.tileCoalGrinder.grindCookTime);
