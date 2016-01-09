@@ -51,9 +51,9 @@ public class CoalGrinderIII extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister IIcR)
     {
-        this.blockIcon = IIcR.registerIcon(Reference.MOD_ID+":"+"te");
+        this.blockIcon = IIcR.registerIcon(Reference.MOD_ID+":"+"grindIII_side");
         this.front = IIcR.registerIcon(this.offon ? Reference.MOD_ID+":"+"t" : Reference.MOD_ID+":"+"t");
-        this.top = IIcR.registerIcon(Reference.MOD_ID+":"+"te");
+        this.top = IIcR.registerIcon(Reference.MOD_ID+":"+"grindIII_top");
     }
     @Override
 	 public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)

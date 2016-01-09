@@ -2,7 +2,6 @@ package com.rumaruka.cg;
 
 import com.rumaruka.cg.client.recipes.FurnaceSmeltingRecipe;
 import com.rumaruka.cg.client.recipes.VanillaRecipes;
-import com.rumaruka.cg.client.registers.ModAchivments;
 import com.rumaruka.cg.client.registers.ModBlocks;
 import com.rumaruka.cg.client.registers.ModItems;
 import com.rumaruka.cg.client.registers.ModTE;
@@ -17,9 +16,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.config.Configuration;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.NAME_MOD, version = Reference.VERSION_MOD)
+@Mod(modid = Reference.MOD_ID, name = Reference.NAME_MOD, version = Reference.VERSION_MOD, dependencies = Reference.DEPENDENCIES)
 
 public class cg {
 
@@ -37,7 +37,6 @@ public class cg {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		ModItems.reg();
 		ModBlocks.reg();
-		
 		VanillaRecipes.loadingInitRecipes();
 		FurnaceSmeltingRecipe.smeltingDust();
 		

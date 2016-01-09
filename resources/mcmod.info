@@ -8,7 +8,7 @@
   "url": "http://minecraft.curseforge.com/projects/simple-grinder",
   "updateUrl": "http://minecraft.curseforge.com/projects/simple-grinder",
   "authorList": ["Rumaruka"],
-  "credits":"Thanks to:Forge Team, LZG",
+  "credits":"Thanks:Forge Team, LZG",
   "logoFile": "assets/cg/logo.png",
   "screenshots": [],
   "dependencies": []
