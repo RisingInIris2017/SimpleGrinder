@@ -7,7 +7,7 @@ import net.minecraft.block.state.IBlockState;
 public class BlockMachineCore extends Block {
 
 	public BlockMachineCore( ) {
-		super(Material.rock);
+		super(Material.ROCK);
 		setHarvestLevel("pickaxe", 0);
 		
 	}

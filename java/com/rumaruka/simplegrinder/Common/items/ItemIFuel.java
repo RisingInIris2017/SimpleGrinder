@@ -20,7 +20,7 @@ public class ItemIFuel extends Item implements IFuelHandler {
 	public ItemIFuel() {
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setCreativeTab(CreativeTabs.tabMaterials);
+		this.setCreativeTab(CreativeTabs.MATERIALS);
 		GameRegistry.registerFuelHandler(this);
 	}
 	

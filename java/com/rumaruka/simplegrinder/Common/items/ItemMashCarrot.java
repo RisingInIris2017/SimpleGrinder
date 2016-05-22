@@ -46,7 +46,7 @@ public class ItemMashCarrot extends ItemFood {
 	    {
 	        if (!worldIn.isRemote)
 	        {
-	            player.addPotionEffect(new PotionEffect(MobEffects.nightVision, 300, 0));
+	            player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 0));
 	        }
 
 	        else

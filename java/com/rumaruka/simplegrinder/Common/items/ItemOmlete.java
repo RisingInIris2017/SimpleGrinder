@@ -4,11 +4,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemMashPotato extends ItemFood {
+public class ItemOmlete extends ItemFood {
+
 	public final int itemUseDuration;
 	/** The amount this food item heals the player. */
 	private final int healAmount;
@@ -33,7 +33,7 @@ public class ItemMashPotato extends ItemFood {
 	private float potionEffectProbability;
 	private static final String __OBFID = "CL_00000036";
 
-	public ItemMashPotato(int p_i45339_1_, float p_i45339_2_, boolean p_i45339_3_) {
+	public ItemOmlete(int p_i45339_1_, float p_i45339_2_, boolean p_i45339_3_) {
 		super(p_i45339_1_, p_i45339_2_, p_i45339_3_);
 		this.itemUseDuration = 32;
 		this.healAmount = p_i45339_1_;
@@ -46,7 +46,7 @@ public class ItemMashPotato extends ItemFood {
 	    {
 	        if (!worldIn.isRemote)
 	        {
-	            player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_DAMAGE, 200, 0));
+	           
 	        }
 
 	        else

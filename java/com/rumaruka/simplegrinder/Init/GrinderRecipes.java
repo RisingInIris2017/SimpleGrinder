@@ -35,29 +35,30 @@ public class GrinderRecipes {
 
 	    public GrinderRecipes()
 	    {
-	    	this.addSmelting(Items.bone, new ItemStack(Items.dye, 5, EnumDyeColor.WHITE.getDyeDamage()), 0.2F);
-	        this.addSmeltingRecipeForBlock(Blocks.iron_ore, new ItemStack(ItemsCore.dust_iron,3), 0.7F);
-	        this.addSmeltingRecipeForBlock(Blocks.gold_ore, new ItemStack(ItemsCore.dust_gold,3), 1.0F);
-	        this.addSmeltingRecipeForBlock(Blocks.diamond_ore, new ItemStack(Items.diamond,4), 1.0F);
-	        this.addSmeltingRecipeForBlock(Blocks.cobblestone, new ItemStack(Blocks.sand,2), 0.1F);
-	        this.addSmeltingRecipeForBlock(Blocks.cactus, new ItemStack(Items.dye, 5, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
-	        this.addSmeltingRecipeForBlock(Blocks.emerald_ore, new ItemStack(Items.emerald,4), 1.0F);
-	        this.addSmelting(Items.potato, new ItemStack(ItemsCore.mash_potato,2), 0.35F);
-	        this.addSmeltingRecipeForBlock(Blocks.coal_ore, new ItemStack(Items.coal,15), 0.1F);
-	        this.addSmeltingRecipeForBlock(Blocks.redstone_ore, new ItemStack(Items.redstone,20), 0.7F);
-	        this.addSmeltingRecipeForBlock(Blocks.lapis_ore, new ItemStack(Items.dye, 15, EnumDyeColor.BLUE.getDyeDamage()), 0.2F);
-	        this.addSmeltingRecipeForBlock(Blocks.quartz_ore, new ItemStack(Items.quartz,15), 0.2F);
-	        this.addSmelting(Items.wheat,new ItemStack(ItemsCore.flour,2), 0.5F);
-	        this.addSmelting(Items.carrot, new ItemStack(ItemsCore.mash_carrot,2), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.sandstone, new ItemStack(Blocks.sand,4), 0.6F);
-	        this.addSmeltingRecipeForBlock(Blocks.gravel, new ItemStack(Items.flint,2), 0.6F);
-	        this.addSmeltingRecipeForBlock(Blocks.bookshelf, new ItemStack(Items.book,2), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.prismarine, new ItemStack(Items.prismarine_shard,2), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.log, new ItemStack(ItemsCore.wood_chips,2), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.log2, new ItemStack(ItemsCore.wood_chips,2), 0.5F);
-	        this.addSmelting(Items.diamond_horse_armor,new ItemStack(Items.diamond,2), 0.5F);
-	        this.addSmelting(Items.iron_horse_armor,new ItemStack(ItemsCore.dust_iron,2), 0.5F);
-	        this.addSmelting(Items.golden_horse_armor,new ItemStack(ItemsCore.dust_gold,2), 0.5F);
+	    	this.addSmelting(Items.BONE, new ItemStack(Items.DYE, 5, EnumDyeColor.WHITE.getDyeDamage()), 0.2F);
+	        this.addSmeltingRecipeForBlock(Blocks.IRON_ORE, new ItemStack(ItemsCore.dust_iron,3), 0.7F);
+	        this.addSmeltingRecipeForBlock(Blocks.GOLD_ORE, new ItemStack(ItemsCore.dust_gold,3), 1.0F);
+	        this.addSmeltingRecipeForBlock(Blocks.DIAMOND_ORE, new ItemStack(Items.DIAMOND,4), 1.0F);
+	        this.addSmeltingRecipeForBlock(Blocks.COBBLESTONE, new ItemStack(Blocks.SAND,2), 0.1F);
+	        this.addSmeltingRecipeForBlock(Blocks.CACTUS, new ItemStack(Items.DYE, 5, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
+	        this.addSmeltingRecipeForBlock(Blocks.EMERALD_ORE, new ItemStack(Items.EMERALD,4), 1.0F);
+	        this.addSmelting(Items.POTATO, new ItemStack(ItemsCore.mash_potato,2), 0.35F);
+	        this.addSmeltingRecipeForBlock(Blocks.COAL_ORE, new ItemStack(Items.COAL,15), 0.1F);
+	        this.addSmeltingRecipeForBlock(Blocks.REDSTONE_ORE, new ItemStack(Items.REDSTONE,20), 0.7F);
+	        this.addSmeltingRecipeForBlock(Blocks.LAPIS_ORE, new ItemStack(Items.DYE, 15, EnumDyeColor.BLUE.getDyeDamage()), 0.2F);
+	        this.addSmeltingRecipeForBlock(Blocks.QUARTZ_ORE, new ItemStack(Items.QUARTZ,15), 0.2F);
+	        this.addSmelting(Items.WHEAT,new ItemStack(ItemsCore.flour,2), 0.5F);
+	        this.addSmelting(Items.CARROT, new ItemStack(ItemsCore.mash_carrot,2), 0.5F);
+	        this.addSmeltingRecipeForBlock(Blocks.SANDSTONE, new ItemStack(Blocks.SAND,4), 0.6F);
+	        this.addSmeltingRecipeForBlock(Blocks.GRAVEL, new ItemStack(Items.FLINT,2), 0.6F);
+	        this.addSmeltingRecipeForBlock(Blocks.BOOKSHELF, new ItemStack(Items.BOOK,2), 0.5F);
+	        this.addSmeltingRecipeForBlock(Blocks.PRISMARINE, new ItemStack(Items.PRISMARINE_SHARD,2), 0.5F);
+	        this.addSmeltingRecipeForBlock(Blocks.LOG, new ItemStack(ItemsCore.wood_chips,2), 0.5F);
+	        this.addSmeltingRecipeForBlock(Blocks.LOG2, new ItemStack(ItemsCore.wood_chips,2), 0.5F);
+	        this.addSmelting(Items.DIAMOND_HORSE_ARMOR,new ItemStack(Items.DIAMOND,2), 0.5F);
+	        this.addSmelting(Items.IRON_HORSE_ARMOR,new ItemStack(ItemsCore.dust_iron,2), 0.5F);
+	        this.addSmelting(Items.GOLDEN_HORSE_ARMOR,new ItemStack(ItemsCore.dust_gold,2), 0.5F);
+	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,2), 0.5F);
 	        
 	    }
 
@@ -133,7 +134,7 @@ public class GrinderRecipes {
 	            }
 	        }
 
-	        return 0.0F;
+	        return 0.1F;
 	    }
 		
 	}

@@ -18,14 +18,14 @@ public class CraftingCore {
 		GameRegistry.addRecipe(outPut, new Object[]{
 				"SSS",
 				"RPR",
-				"SSS", 'S', Blocks.stone, 'R', Items.redstone, 'P', Blocks.piston
+				"SSS", 'S', Blocks.STONE, 'R', Items.REDSTONE, 'P', Blocks.PISTON
 		});
 		ItemStack outPUT;
 		outPUT = new ItemStack(BlocksCore.coal_grinder);
 		GameRegistry.addRecipe(outPUT, new Object[]{
 				"SIS",
 				"SMS",
-				"IPI", 'S', Blocks.stone, 'I', Items.iron_ingot, 'P', Blocks.piston, 'M', BlocksCore.machine_core
+				"IPI", 'S', Blocks.STONE, 'I', Items.IRON_INGOT, 'P', Blocks.PISTON, 'M', BlocksCore.machine_core
 		});
 		
 		ItemStack output;
@@ -33,7 +33,7 @@ public class CraftingCore {
 		GameRegistry.addRecipe(output, new Object[]{
 				"EIE",
 				"GCG",
-				"EIE", 'I',Items.diamond, 'G', Items.gold_ingot,  'C', new ItemStack(Items.coal), 'E', ItemsCore.wood_chips
+				"EIE", 'I',Items.DIAMOND, 'G', Items.GOLD_INGOT,  'C', new ItemStack(Items.COAL), 'E', ItemsCore.wood_chips
 		});
 		
 		

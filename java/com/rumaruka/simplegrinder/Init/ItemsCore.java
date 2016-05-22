@@ -6,6 +6,7 @@ import com.rumaruka.simplegrinder.Common.items.ItemFloar;
 import com.rumaruka.simplegrinder.Common.items.ItemIFuel;
 import com.rumaruka.simplegrinder.Common.items.ItemMashCarrot;
 import com.rumaruka.simplegrinder.Common.items.ItemMashPotato;
+import com.rumaruka.simplegrinder.Common.items.ItemOmlete;
 import com.rumaruka.simplegrinder.Common.items.ItemWoodChips;
 import com.rumaruka.simplegrinder.Reference.Reference;
 
@@ -25,18 +26,20 @@ public class ItemsCore {
 	public static Item flour;
 	public static ItemFood mash_carrot;
 	public static ItemFood mash_potato;
+	public static ItemFood omlete;
 	
 	public static Item i_fuel;
 	public static Item wood_chips;
 	public static void init() {
-		dust_iron = new ItemDustIron().setUnlocalizedName("dust_iron").setCreativeTab(CreativeTabs.tabMaterials);
-		dust_gold = new ItemDustGold().setUnlocalizedName("dust_gold").setCreativeTab(CreativeTabs.tabMaterials);
-		wood_chips = new ItemWoodChips().setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("wood_chips");
-		flour = new ItemFloar().setUnlocalizedName("flour").setCreativeTab(CreativeTabs.tabFood);
-		mash_carrot = (ItemFood) new ItemMashCarrot(4, 2.9F, false).setUnlocalizedName("mash_carrot").setCreativeTab(CreativeTabs.tabFood);
-		mash_potato = (ItemFood) new ItemMashPotato(3, 4.5F, false).setUnlocalizedName("mash_potato").setCreativeTab(CreativeTabs.tabFood);
+		dust_iron = new ItemDustIron().setUnlocalizedName("dust_iron").setCreativeTab(CreativeTabs.MATERIALS);
+		dust_gold = new ItemDustGold().setUnlocalizedName("dust_gold").setCreativeTab(CreativeTabs.MATERIALS);
+		wood_chips = new ItemWoodChips().setCreativeTab(CreativeTabs.MATERIALS).setUnlocalizedName("wood_chips");
+		flour = new ItemFloar().setUnlocalizedName("flour").setCreativeTab(CreativeTabs.FOOD);
+		mash_carrot = (ItemFood) new ItemMashCarrot(4, 3.9F, false).setUnlocalizedName("mash_carrot").setCreativeTab(CreativeTabs.FOOD);
+		mash_potato = (ItemFood) new ItemMashPotato(3, 4.5F, false).setUnlocalizedName("mash_potato").setCreativeTab(CreativeTabs.FOOD);
+		omlete = (ItemFood) new ItemOmlete(2, 2.6F, false).setUnlocalizedName("omlete").setCreativeTab(CreativeTabs.FOOD);
 		
-		i_fuel = new ItemIFuel().setUnlocalizedName("i_fuel").setCreativeTab(CreativeTabs.tabMaterials);
+		i_fuel = new ItemIFuel().setUnlocalizedName("i_fuel").setCreativeTab(CreativeTabs.MATERIALS);
 		
 		
 	}
@@ -49,6 +52,7 @@ public class ItemsCore {
 		GameRegistry.registerItem(mash_potato, mash_potato.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(i_fuel, i_fuel.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(wood_chips, wood_chips.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(omlete, omlete.getUnlocalizedName().substring(5));
 		
 		
 	}
@@ -64,6 +68,7 @@ public class ItemsCore {
 		Renders(mash_potato);
 		Renders(i_fuel);
 		Renders(wood_chips);
+		Renders(omlete);
 	}
 	public static void Renders(Item i){
 		

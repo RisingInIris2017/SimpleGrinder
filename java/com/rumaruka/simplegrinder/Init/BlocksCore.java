@@ -23,9 +23,9 @@ public class BlocksCore {
 	
 	public static void init(){
 		
-		coal_grinder = new BlockCoalGrinder(false).setUnlocalizedName("coal_grinder").setCreativeTab(CreativeTabs.tabDecorations);
+		coal_grinder = new BlockCoalGrinder(false).setUnlocalizedName("coal_grinder").setCreativeTab(CreativeTabs.DECORATIONS);
 		lit_grinder = new BlockCoalGrinder(true).setUnlocalizedName("lit_grinder").setLightLevel(3.5F);
-		machine_core = new BlockMachineCore().setUnlocalizedName("machine_core").setCreativeTab(CreativeTabs.tabBlock).setRegistryName("machine_core");
+		machine_core = new BlockMachineCore().setUnlocalizedName("machine_core").setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 	}
 	public static void InGameRegister(){
 		GameRegistry.registerBlock(coal_grinder, coal_grinder.getUnlocalizedName().substring(5));

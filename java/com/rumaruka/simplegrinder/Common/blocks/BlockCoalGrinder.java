@@ -47,7 +47,7 @@ public class BlockCoalGrinder extends BlockContainer implements ITileEntityProvi
 
     public BlockCoalGrinder(boolean isBurning)
     {
-        super(Material.rock);
+        super(Material.ROCK);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
     }
@@ -57,7 +57,7 @@ public class BlockCoalGrinder extends BlockContainer implements ITileEntityProvi
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(Blocks.furnace);
+        return Item.getItemFromBlock(Blocks.FURNACE);
     }
 
     public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
@@ -111,7 +111,7 @@ public class BlockCoalGrinder extends BlockContainer implements ITileEntityProvi
 
             if (rand.nextDouble() < 0.1D)
             {
-                pos.playSound((double)state.getX() + 0.5D, (double)state.getY(), (double)state.getZ() + 0.5D, SoundEvents.block_furnace_fire_crackle, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+                pos.playSound((double)state.getX() + 0.5D, (double)state.getY(), (double)state.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
             }
 
             switch (enumfacing)
