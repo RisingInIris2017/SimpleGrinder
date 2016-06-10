@@ -46,7 +46,7 @@ public class ItemMashPotato extends ItemFood {
 	    {
 	        if (!worldIn.isRemote)
 	        {
-	            player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_DAMAGE, 200, 0));
+	            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 200, 0));
 	        }
 
 	        else
