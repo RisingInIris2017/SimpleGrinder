@@ -1,7 +1,7 @@
 #CreativeTabs
 itemGroup.Simple Grinder=Simple Grinder
 #JEI
-
+gui.jei.category.grinder=Grindering
 #Gui
 container.grinder=Coal Grinder
 

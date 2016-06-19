@@ -61,7 +61,8 @@ public class GrinderRecipes {
 	        this.addSmelting(Items.IRON_HORSE_ARMOR,new ItemStack(ItemsCore.dust_iron,ConfigHandler.getIronDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.GOLDEN_HORSE_ARMOR,new ItemStack(ItemsCore.dust_gold,ConfigHandler.getGoldDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,ConfigHandler.getOmleteOutput()), 0.5F);
-	        
+	       
+	      
 	    }
 
 	    public GrinderRecipes(List<ItemStack> inputs, ItemStack output, float experience) {

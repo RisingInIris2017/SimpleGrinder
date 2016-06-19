@@ -1,7 +1,7 @@
 ﻿#NEI
 nei.recipe.coalgrinder=研磨
 #JEI
-
+gui.jei.category.grinder=???
 #Gui
 container.Coal Grinder=燃煤研磨机
 
