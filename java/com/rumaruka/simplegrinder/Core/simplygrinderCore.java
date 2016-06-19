@@ -8,8 +8,10 @@ import com.rumaruka.simplegrinder.Init.ItemsCore;
 import com.rumaruka.simplegrinder.Init.TileEntityCore;
 import com.rumaruka.simplegrinder.Proxy.CommonProxy;
 import com.rumaruka.simplegrinder.Reference.Reference;
+import com.rumaruka.simplegrinder.Core.ConfigHandler;
 
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -53,6 +55,11 @@ public class simplygrinderCore {
 		CraftingCore.CraftingCoreInit();
 		//Smelting
 		FurnaceSmelting.Smelting();
+		//Load ConfigHandler
+		ConfigHandler.startConfig(e);
+		//Load Config
+		Configuration config = new Configuration(e.getSuggestedConfigurationFile());
+  		config.load();
 		
 	}
 	
