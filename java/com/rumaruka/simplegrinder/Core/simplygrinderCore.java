@@ -8,6 +8,7 @@ import com.rumaruka.simplegrinder.Init.ItemsCore;
 import com.rumaruka.simplegrinder.Init.TileEntityCore;
 import com.rumaruka.simplegrinder.Proxy.CommonProxy;
 import com.rumaruka.simplegrinder.Reference.Reference;
+import com.rumaruka.simplegrinder.Common.OreDict.OreDict;
 import com.rumaruka.simplegrinder.Core.ConfigHandler;
 
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -24,7 +25,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 @Mod(modid=Reference.MODID, name = Reference.MODNAME, version=Reference.MODVERSIONS)
 public class simplygrinderCore {
 	
-	public static boolean jeiModLoader = false;
+	
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
@@ -35,7 +36,7 @@ public class simplygrinderCore {
 	public void PreInit(FMLPreInitializationEvent e)
 	{
 		
-		 jeiModLoader = Loader.isModLoaded("");
+		
 		
 		
 		
@@ -67,6 +68,7 @@ public class simplygrinderCore {
 	public void Init(FMLInitializationEvent e)
 	{
 		proxy.Renders();
+		
 	}
 	
 	@EventHandler

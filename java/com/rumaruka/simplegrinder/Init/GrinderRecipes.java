@@ -1,5 +1,6 @@
 package com.rumaruka.simplegrinder.Init;
 
+import com.rumaruka.simplegrinder.Common.OreDict.OreDict;
 import com.rumaruka.simplegrinder.Core.ConfigHandler;
 
 import java.util.List;
@@ -18,7 +19,6 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class GrinderRecipes {
@@ -61,7 +61,7 @@ public class GrinderRecipes {
 	        this.addSmelting(Items.IRON_HORSE_ARMOR,new ItemStack(ItemsCore.dust_iron,ConfigHandler.getIronDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.GOLDEN_HORSE_ARMOR,new ItemStack(ItemsCore.dust_gold,ConfigHandler.getGoldDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,ConfigHandler.getOmleteOutput()), 0.5F);
-	       
+	     
 	      
 	    }
 

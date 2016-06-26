@@ -1,4 +1,4 @@
-package com.rumaruka.simplegrinder.Common.compat.grinder;
+/*package com.rumaruka.simplegrinder.Common.compat.grinder;
 
 import javax.annotation.Nonnull;
 
@@ -50,4 +50,4 @@ public class GrinderingRecipeHandler implements IRecipeHandler<GrinderingRecipe>
 		return true;
 	}
 
-}
+}*/
