@@ -1,7 +1,7 @@
 ﻿#NEI
 nei.recipe.coalgrinder=研磨
 #JEI
-gui.jei.category.grinder=???
+gui.jei.category.grinder=研磨
 #Gui
 container.Coal Grinder=燃煤研磨机
 
@@ -16,4 +16,4 @@ item.dustGold.name=金粉
 item.Flour.name=面粉
 #item.i_fuel.name=I Fuel 
 item.wood_chips.name=木质芯片
-item.omlete.name=???
+item.omlete.name=煎蛋卷
