@@ -1,4 +1,4 @@
-package com.rumaruka.simplegrinder.Common.compat.grinder;
+/*package com.rumaruka.simplegrinder.Common.compat.grinder;
 
 import javax.annotation.Nonnull;
 
@@ -41,3 +41,4 @@ public abstract class GrinderingRecipeCategory<T extends IRecipeWrapper> extends
 
 	
 }
+*/

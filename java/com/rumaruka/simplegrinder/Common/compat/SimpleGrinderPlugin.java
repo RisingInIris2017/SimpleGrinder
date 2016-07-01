@@ -1,4 +1,4 @@
-package com.rumaruka.simplegrinder.Common.compat;
+/*package com.rumaruka.simplegrinder.Common.compat;
 
 import mezz.jei.api.BlankModPlugin;
 import mezz.jei.api.IGuiHelper;
@@ -81,4 +81,4 @@ public class SimpleGrinderPlugin extends BlankModPlugin {
 		registry.addRecipes(GrinderingRecipeMaker.getFurnaceRecipes(jeiHelpers));
 	
 	}
-}
+}*/
