@@ -1,4 +1,4 @@
-/*package com.rumaruka.simplegrinder.Common.compat.grinder;
+package com.rumaruka.simplegrinder.Common.compat.grinder;
 
 import java.awt.Color;
 import java.util.Collections;
@@ -52,4 +52,3 @@ public class GrinderingRecipe extends SimpleGrinderWrapper{
 		}
 	}
 }
-*/

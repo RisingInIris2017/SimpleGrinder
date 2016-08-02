@@ -109,10 +109,7 @@ public class BlockCoalGrinder extends BlockContainer implements ITileEntityProvi
             double d3 = 0.52D;
             double d4 = rand.nextDouble() * 0.6D - 0.3D;
 
-            if (rand.nextDouble() < 0.1D)
-            {
-                pos.playSound((double)state.getX() + 0.5D, (double)state.getY(), (double)state.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-            }
+          
 
             switch (enumfacing)
             {

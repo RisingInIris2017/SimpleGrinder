@@ -252,9 +252,13 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
 			this.markDirty();
 		}
 	}
+	
+	/*Time cooking 
+	 * Int - time
+	 */
 
 	public int getCookTime(@Nullable ItemStack stack) {
-		return 150;
+		return 160;
 	}
 
 	/**
@@ -332,34 +336,34 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
 				Block block = Block.getBlockFromItem(item);
 
 				if (block == Blocks.WOODEN_SLAB) {
-					return 150;
+					return 100;
 				}
 
 				if (block.getDefaultState().getMaterial() == Material.WOOD) {
-					return 300;
+					return 250;
 				}
 
 				if (block == Blocks.COAL_BLOCK) {
-					return 16000;
+					return 10000;
 				}
 			}
 
 			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD"))
-				return 200;
-			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
-				return 200;
-			if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD"))
-				return 200;
-			if (item == Items.STICK)
 				return 100;
+			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
+				return 100;
+			if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD"))
+				return 100;
+			if (item == Items.STICK)
+				return 25;
 			if (item == Items.COAL)
-				return 1600;
+				return 1400;
 			if (item == Items.LAVA_BUCKET)
 				return 20000;
 			if (item == Item.getItemFromBlock(Blocks.SAPLING))
-				return 100;
+				return 25;
 			if (item == Items.BLAZE_ROD)
-				return 2400;
+				return 3000;
 			if (item == ItemsCore.i_fuel)
 				return 30000;
 			if (item == ItemsCore.wood_chips)

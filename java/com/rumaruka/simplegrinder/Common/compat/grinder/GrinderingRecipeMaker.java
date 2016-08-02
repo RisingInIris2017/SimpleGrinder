@@ -1,4 +1,4 @@
-/*package com.rumaruka.simplegrinder.Common.compat.grinder;
+package com.rumaruka.simplegrinder.Common.compat.grinder;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -37,4 +37,3 @@ public class GrinderingRecipeMaker {
 	}
 
 }
-*/
