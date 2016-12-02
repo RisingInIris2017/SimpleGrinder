@@ -8,6 +8,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public interface GuiInv {
+	
+	@SideOnly(Side.SERVER)
     Container createContainer(InventoryPlayer inventoryplayer, World world, BlockPos pos);
 
     @SideOnly(Side.CLIENT)

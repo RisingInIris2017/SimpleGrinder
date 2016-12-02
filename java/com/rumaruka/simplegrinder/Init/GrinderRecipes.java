@@ -59,14 +59,7 @@ public class GrinderRecipes {
 	        this.addSmelting(Items.IRON_HORSE_ARMOR,new ItemStack(ItemsCore.dust_iron,ConfigHandler.getIronDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.GOLDEN_HORSE_ARMOR,new ItemStack(ItemsCore.dust_gold,ConfigHandler.getGoldDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,ConfigHandler.getOmleteOutput()), 1F);
-	        this.addSmelting(Items.IRON_HELMET, new ItemStack(ItemsCore.dust_iron,5), 1.5F);
-	        this.addSmelting(Items.IRON_CHESTPLATE, new ItemStack(ItemsCore.dust_iron,8), 1.5F);
-	        this.addSmelting(Items.IRON_LEGGINGS, new ItemStack(ItemsCore.dust_iron,7), 1.5F);
-	        this.addSmelting(Items.IRON_BOOTS, new ItemStack(ItemsCore.dust_iron,4), 1.5F);
-	        this.addSmelting(Items.GOLDEN_HELMET, new ItemStack(ItemsCore.dust_gold,5), 1.5F);
-	        this.addSmelting(Items.GOLDEN_CHESTPLATE, new ItemStack(ItemsCore.dust_gold,8), 1.5F);
-	        this.addSmelting(Items.GOLDEN_LEGGINGS, new ItemStack(ItemsCore.dust_gold,7), 1.5F);
-	        this.addSmelting(Items.GOLDEN_BOOTS, new ItemStack(ItemsCore.dust_gold,4), 1.5F);
+	       
 	      
 	    }
 

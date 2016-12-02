@@ -8,47 +8,48 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.rumaruka.simplegrinder.Common.compat.SimpleGrinderWrapper;
+import com.rumaruka.simplegrinder.Init.GrinderRecipes;
 
+import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.util.Translator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.item.ItemStack;
 
+
 public class GrinderingRecipe extends SimpleGrinderWrapper{
-	@Nonnull
-	private final List<List<ItemStack>> input;
-	@Nonnull
-	private final List<ItemStack> outputs;
-
-	@Nullable
-	private final String experienceString;
-
-	public GrinderingRecipe(@Nonnull List<ItemStack> input, @Nonnull ItemStack output, float experience) {
-		this.input = Collections.singletonList(input);
-		this.outputs = Collections.singletonList(output);
-
-		if (experience > 0.0) {
-			experienceString = Translator.translateToLocalFormatted("gui.jei.category.smelting.experience", experience);
-		} else {
-			experienceString = null;
-		}
+	
+	private final List<List<ItemStack>> inputs;
+	private final ItemStack output;
+	public GrinderingRecipe(List<ItemStack> inputs, ItemStack output) {
+		this.inputs = Collections.singletonList(inputs);
+		this.output = output;
 	}
 
-	@Nonnull
+	@Override
+	public void getIngredients(IIngredients ingredients) {
+		ingredients.setInputLists(ItemStack.class, inputs);
+		ingredients.setOutput(ItemStack.class, output);
+		
+	}
 	public List<List<ItemStack>> getInputs() {
-		return input;
+		return inputs;
 	}
 
-	@Nonnull
 	public List<ItemStack> getOutputs() {
-		return outputs;
+		return Collections.singletonList(output);
 	}
-	@Override	
-	public void drawInfo(@Nonnull Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-		if (experienceString != null) {
+
+	@Override
+	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
+		GrinderRecipes furnaceRecipes = GrinderRecipes.instance();
+		float experience = furnaceRecipes.getSmeltingExperience(output);
+		if (experience > 0) {
+			String experienceString = Translator.translateToLocalFormatted("gui.jei.category.smelting.experience", experience);
 			FontRenderer fontRendererObj = minecraft.fontRendererObj;
 			int stringWidth = fontRendererObj.getStringWidth(experienceString);
 			fontRendererObj.drawString(experienceString, recipeWidth - stringWidth, 0, Color.gray.getRGB());
 		}
 	}
+	
 }

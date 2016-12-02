@@ -1,5 +1,6 @@
 package com.rumaruka.simplegrinder.Init;
 
+import com.google.common.base.Strings;
 import com.rumaruka.simplegrinder.Client.gui.creativetabs.SimpleGrinderCreativeTabs;
 import com.rumaruka.simplegrinder.Common.items.ItemCoalGrinder;
 import com.rumaruka.simplegrinder.Common.items.ItemDustGold;
@@ -13,7 +14,7 @@ import com.rumaruka.simplegrinder.Common.items.ItemOmlete;
 import com.rumaruka.simplegrinder.Common.items.ItemWoodChips;
 import com.rumaruka.simplegrinder.Reference.Reference;
 
-import jdk.nashorn.internal.runtime.linker.LinkerCallSite;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,6 +23,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.event.ClickEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -61,20 +63,30 @@ public class ItemsCore {
 	}
 	
 	public static void InGameRegister(){
-		GameRegistry.registerItem(dust_iron, dust_iron.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(dust_gold, dust_gold.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(flour, flour.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(mash_carrot, mash_carrot.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(mash_potato, mash_potato.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(i_fuel, i_fuel.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(wood_chips, wood_chips.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(omlete, omlete.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(dust_iron, dust_iron.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(dust_gold, dust_gold.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(flour, flour.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(mash_carrot, mash_carrot.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(mash_potato, mash_potato.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(i_fuel, i_fuel.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(wood_chips, wood_chips.getUnlocalizedName().substring(5));
+		ItemsCore.registerItem(omlete, omlete.getUnlocalizedName().substring(5));
+		
+		
 		
 		
 		
 	}
 	
-	
+	@Deprecated
+    public static void registerItem(Item item, String name)
+    {
+        if (item.getRegistryName() == null && Strings.isNullOrEmpty(name))
+            throw new IllegalArgumentException("Attempted to register a item with no name: " + item);
+        if (item.getRegistryName() != null && !item.getRegistryName().toString().equals(name))
+            throw new IllegalArgumentException("Attempted to register a item with conflicting names. Old: " + item.getRegistryName() + " New: " + name);
+        GameRegistry.register(item.getRegistryName() == null ? item.setRegistryName(name) : item);
+    }
 	
 	public static void Render(){
 		Renders(dust_iron);

@@ -19,14 +19,10 @@ public class SimpleGrinderCreativeTabs extends CreativeTabs{
 	}
 
 	@Override
-	public Item getTabIconItem() {
+	public ItemStack getTabIconItem() {
 		// TODO Auto-generated method stub
-		return getIconItemStack().getItem();
+		return new ItemStack(Item.getItemFromBlock(BlocksCore.coal_grinder));
 	}
-	@Override
-	public ItemStack getIconItemStack() {
-		// TODO Auto-generated method stub
-		return new ItemStack(BlocksCore.coal_grinder);
-	}
+
 
 }

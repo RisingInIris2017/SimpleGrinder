@@ -36,7 +36,7 @@ public class ItemIFuel extends Item implements IFuelHandler {
 	}
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.GOLD+"This joke fule");
+		tooltip.add(TextFormatting.GOLD+"This joke fuel");
 	}
 
 

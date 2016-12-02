@@ -2,13 +2,20 @@ package com.rumaruka.simplegrinder.Common.compat;
 
 import mezz.jei.api.BlankModPlugin;
 import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.IItemRegistry;
+
 import mezz.jei.api.IJeiHelpers;
+import mezz.jei.api.IJeiRuntime;
 import mezz.jei.api.IModRegistry;
-import mezz.jei.api.INbtRegistry;
 import mezz.jei.api.JEIPlugin;
+import mezz.jei.api.ingredients.IIngredientRegistry;
+import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import mezz.jei.api.recipe.transfer.IRecipeTransferRegistry;
+import mezz.jei.config.Config;
+import mezz.jei.plugins.jei.ingredients.DebugIngredient;
+import mezz.jei.plugins.jei.ingredients.DebugIngredientHelper;
+import mezz.jei.plugins.jei.ingredients.DebugIngredientListFactory;
+import mezz.jei.plugins.jei.ingredients.DebugIngredientRenderer;
 import mezz.jei.plugins.vanilla.brewing.BrewingRecipeCategory;
 import mezz.jei.plugins.vanilla.brewing.BrewingRecipeHandler;
 import mezz.jei.plugins.vanilla.brewing.BrewingRecipeMaker;
@@ -52,28 +59,37 @@ import com.rumaruka.simplegrinder.Init.BlocksCore;
 
 @JEIPlugin
 public class SimpleGrinderPlugin extends BlankModPlugin {
+	
+	@Nullable
+	public static IIngredientRegistry ingrReg;
+	@Nullable
+	public static IJeiRuntime jeiRun;
+	
 	@Override
-	public void register(@Nonnull IModRegistry registry) {
-		IItemRegistry itemRegistry = registry.getItemRegistry();
+	public void registerIngredients(IModIngredientRegistration ingredientRegistration) {
+		if (Config.isDebugModeEnabled()) {
+			ingredientRegistration.register(DebugIngredient.class, DebugIngredientListFactory.create(), new DebugIngredientHelper(), new DebugIngredientRenderer());
+		}
+	}
+	@Override
+	public void register(IModRegistry registry) {
 		IJeiHelpers jeiHelpers = registry.getJeiHelpers();
-
+		ingrReg = registry.getIngredientRegistry();
 		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
-		jeiHelpers.getItemBlacklist().addItemToBlacklist(new ItemStack(BlocksCore.lit_grinder));
-		registry.addRecipeCategories(
-			
-				new CoalGrinderingCategory(guiHelper)
-			
-				
-		);
-
-		registry.addRecipeHandlers(
+		
+		
+        registry.addRecipeHandlers(
 				
 				
 				new GrinderingRecipeHandler()
 				
 		);
-
-		
+        registry.addRecipeCategories(
+    			
+				new CoalGrinderingCategory(guiHelper)
+			
+				
+		);
 		registry.addRecipeClickArea(GuiCoalGrinder.class, 78, 32, 28, 23, SimpleGrinderRecipeUID.GRINDER_UID, VanillaRecipeCategoryUid.FUEL);
 
 		

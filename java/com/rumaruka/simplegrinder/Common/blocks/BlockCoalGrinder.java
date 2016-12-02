@@ -9,6 +9,7 @@ import com.rumaruka.simplegrinder.Reference.GUI;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -26,7 +27,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -47,9 +48,11 @@ public class BlockCoalGrinder extends BlockContainer implements ITileEntityProvi
 
     public BlockCoalGrinder(boolean isBurning)
     {
-        super(Material.ROCK);
+        super(Material.CLOTH);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.isBurning = isBurning;
+        setHarvestLevel("pickaxe", 1);
+        setHardness(2.3F);
     }
 
     /**
@@ -132,20 +135,42 @@ public class BlockCoalGrinder extends BlockContainer implements ITileEntityProvi
         }
     }
 
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
+/*    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
     {
+    	
 		if(playerIn.isSneaking()){
 			return false;
 		}else{
 			if(!worldIn.isRemote){
 				if(worldIn.getTileEntity(pos)instanceof TileEntityCoalGrinder){
 					playerIn.openGui(simplygrinderCore.instance, GUI.CoalGrinder.ordinal(), worldIn, pos.getX(), pos.getY(), pos.getZ());
+					
 				}
 			}
 		}
 		return true;
        
+    }*/
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY)
+    {
+        if (worldIn.isRemote)
+        {
+            return true;
+        }
+        else
+        {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+
+            if (tileentity instanceof TileEntityCoalGrinder)
+            {
+               // playerIn.displayGUIChest((TileEntityCoalGrinder)tileentity);
+            	playerIn.openGui(simplygrinderCore.instance, GUI.CoalGrinder.ordinal(), worldIn, pos.getX(), pos.getY(), pos.getZ());
+            }
+
+            return true;
+        }
     }
+
 
     public static void setState(boolean active, World worldIn, BlockPos pos)
     {

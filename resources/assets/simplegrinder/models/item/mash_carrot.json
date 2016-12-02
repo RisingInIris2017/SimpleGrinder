@@ -2,6 +2,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "simplegrinder:items/mashC"
+        "layer0": "simplegrinder:items/mash_carrot"
     }
 }

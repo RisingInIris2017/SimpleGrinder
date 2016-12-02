@@ -19,10 +19,10 @@ public class ConnectionEventSG {
 	@SubscribeEvent
 	public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
 
-		event.player.addChatComponentMessage(
+		event.player.addChatMessage(
 				new TextComponentString(TextFormatting.DARK_PURPLE + "Thank you for dowload my mod"));
 
-		event.player.addChatComponentMessage(new TextComponentString(TextFormatting.DARK_RED
+		event.player.addChatMessage(new TextComponentString(TextFormatting.DARK_RED
 				+"Check update "+TextFormatting.WHITE+url));
 
 	}
