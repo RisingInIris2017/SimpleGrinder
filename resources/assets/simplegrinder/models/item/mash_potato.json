@@ -3,6 +3,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "simplegrinder:items/mashP"
+        "layer0": "simplegrinder:items/mash_potato"
     }
 }

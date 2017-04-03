@@ -1,11 +1,15 @@
 package com.rumaruka.simplegrinder.Common.items;
 
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayer.EnumChatVisibility;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class ItemMashCarrot extends ItemFood {
@@ -54,6 +58,10 @@ public class ItemMashCarrot extends ItemFood {
 	            super.onFoodEaten(stack, worldIn, player);
 	        }
 	    }
-	 
+	 @Override
+		public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+			// TODO Auto-generated method stub
+			tooltip.add("Add after eating" +TextFormatting.DARK_BLUE+ " Night vision");
+		}
 
 }

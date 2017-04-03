@@ -1,6 +1,5 @@
 package com.rumaruka.simplegrinder.Init;
 
-import com.rumaruka.simplegrinder.Common.OreDict.OreDict;
 import com.rumaruka.simplegrinder.Core.ConfigHandler;
 
 import java.util.List;
@@ -10,15 +9,14 @@ import java.util.Map.Entry;
 import javax.annotation.Nonnull;
 
 import com.google.common.collect.Maps;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class GrinderRecipes {
@@ -60,18 +58,11 @@ public class GrinderRecipes {
 	        this.addSmelting(Items.DIAMOND_HORSE_ARMOR,new ItemStack(Items.DIAMOND,ConfigHandler.getDiamondHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.IRON_HORSE_ARMOR,new ItemStack(ItemsCore.dust_iron,ConfigHandler.getIronDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.GOLDEN_HORSE_ARMOR,new ItemStack(ItemsCore.dust_gold,ConfigHandler.getGoldDustHorseArmorOutput()), 0.5F);
-	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,ConfigHandler.getOmleteOutput()), 0.5F);
-	     
+	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,ConfigHandler.getOmleteOutput()), 1F);
+	        this.addSmeltingRecipe(new ItemStack(Blocks.STONE,1,0), new ItemStack(Blocks.COBBLESTONE),1F);
+	       
 	      
 	    }
-
-	    public GrinderRecipes(List<ItemStack> inputs, ItemStack output, float experience) {
-			// TODO Auto-generated constructor stub
-		}
-
-		/**
-	     * Adds a smelting recipe, where the input item is an instance of Block.
-	     */
 	    public void addSmeltingRecipeForBlock(Block input, ItemStack stack, float experience)
 	    {
 	        this.addSmelting(Item.getItemFromBlock(input), stack, experience);
@@ -90,7 +81,7 @@ public class GrinderRecipes {
 	     */
 	    public void addSmeltingRecipe(ItemStack input, ItemStack stack, float experience)
 	    {
-	        if (getSmeltingResult(input) != null) { net.minecraftforge.fml.common.FMLLog.info("Ignored smelting recipe with conflicting input: " + input + " = " + stack); return; }
+	        if (getSmeltingResult(input) != ItemStack.EMPTY) { net.minecraftforge.fml.common.FMLLog.info("Ignored smelting recipe with conflicting input: " + input + " = " + stack); return; }
 	        this.smeltingList.put(input, stack);
 	        this.experienceList.put(stack, Float.valueOf(experience));
 	    }
@@ -108,7 +99,7 @@ public class GrinderRecipes {
 	            }
 	        }
 
-	        return null;
+	        return ItemStack.EMPTY;
 	    }
 
 	    /**
@@ -137,7 +128,6 @@ public class GrinderRecipes {
 	            }
 	        }
 
-	        return 0.1F;
+	        return 1.0F;
 	    }
-		
 	}
