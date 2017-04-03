@@ -8,7 +8,6 @@ import com.rumaruka.simplegrinder.Init.ItemsCore;
 import com.rumaruka.simplegrinder.Init.TileEntityCore;
 import com.rumaruka.simplegrinder.Proxy.CommonProxy;
 import com.rumaruka.simplegrinder.Reference.Reference;
-import com.rumaruka.simplegrinder.Common.OreDict.OreDict;
 import com.rumaruka.simplegrinder.Core.ConfigHandler;
 
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -21,65 +20,52 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid=Reference.MODID, name = Reference.MODNAME, version=Reference.MODVERSIONS)
+@Mod(modid = Reference.MODID, name = Reference.MODNAME, version = Reference.MODVERSIONS)
 public class simplygrinderCore {
-	
-	
-	
+
+
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 	@Mod.Instance(Reference.MODID)
 	public static simplygrinderCore instance;
-	
+
 	@EventHandler
-	public void PreInit(FMLPreInitializationEvent e)
-	{
-		
-		
-		
-		
-		
-		
-		
-		//Blocks
+	public void PreInit(FMLPreInitializationEvent e) {
+
+		// Blocks
 		BlocksCore.init();
 		BlocksCore.InGameRegister();
-		//TileEntity
+		// TileEntity
 		TileEntityCore.InGameRegist();
-		//Items
+		// Items
 		ItemsCore.init();
 		ItemsCore.InGameRegister();
-		//EventHandler
+		// EventHandler
 		EventRegister.RegisetHandlers();
-		//Crafting
+		// Crafting
 		CraftingCore.CraftingCoreInit();
-		//Smelting
+		// Smelting
 		FurnaceSmelting.Smelting();
-		//Load ConfigHandler
+		// Load ConfigHandler
 		ConfigHandler.startConfig(e);
-		//Load Config
+		// Load Config
 		Configuration config = new Configuration(e.getSuggestedConfigurationFile());
-  		config.load();
-		
+		config.load();
+		//Load Fuel
+		GameRegistry.registerFuelHandler(new ModFuelsHandler());
 	}
-	
+
 	@EventHandler
-	public void Init(FMLInitializationEvent e)
-	{
+	public void Init(FMLInitializationEvent e) {
 		proxy.Renders();
-		
+
 	}
-	
+
 	@EventHandler
-	public void PostInit(FMLPostInitializationEvent e)
-	{
-		
+	public void PostInit(FMLPostInitializationEvent e) {
+
 	}
-	
-	
-	
-	
-	
 
 }

@@ -1,4 +1,4 @@
-/*package com.rumaruka.simplegrinder.Common.compat.grinder;
+package com.rumaruka.simplegrinder.Common.compat.grinder;
 
 import javax.annotation.Nonnull;
 
@@ -27,7 +27,7 @@ public abstract class GrinderingRecipeCategory<T extends IRecipeWrapper> extends
 	protected final IDrawableAnimated arrow;
 
 	public GrinderingRecipeCategory(IGuiHelper guiHelper) {
-		backgroundLocation = new ResourceLocation(Reference.MODID, "textures/gui/container/grindGui.png");
+		backgroundLocation = new ResourceLocation(Reference.MODID,"textures/gui/container/grind.png");
 
 		IDrawableStatic flameDrawable = guiHelper.createDrawable(backgroundLocation, 176, 0, 14, 14);
 		flame = guiHelper.createAnimatedDrawable(flameDrawable, 300, IDrawableAnimated.StartDirection.TOP, true);
@@ -41,4 +41,3 @@ public abstract class GrinderingRecipeCategory<T extends IRecipeWrapper> extends
 
 	
 }
-*/

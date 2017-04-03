@@ -1,4 +1,4 @@
-/*package com.rumaruka.simplegrinder.Common.compat.grinder;
+package com.rumaruka.simplegrinder.Common.compat.grinder;
 
 import javax.annotation.Nonnull;
 
@@ -20,34 +20,28 @@ public class GrinderingRecipeHandler implements IRecipeHandler<GrinderingRecipe>
 	}
 
 	@Override
-	public String getRecipeCategoryUid() {
+	public String getRecipeCategoryUid(GrinderingRecipe recipe) {
 		// TODO Auto-generated method stub
 		return SimpleGrinderRecipeUID.GRINDER_UID;
 	}
 
-	@Nonnull
 	@Override
-	public String getRecipeCategoryUid(@Nonnull GrinderingRecipe recipe) {
-		return SimpleGrinderRecipeUID.GRINDER_UID;
-	}
-
-	@Override
-	@Nonnull
-	public IRecipeWrapper getRecipeWrapper(@Nonnull GrinderingRecipe recipe) {
+	public IRecipeWrapper getRecipeWrapper(GrinderingRecipe recipe) {
+		// TODO Auto-generated method stub
 		return recipe;
 	}
 
 	@Override
-	public boolean isRecipeValid(@Nonnull GrinderingRecipe recipe) {
-		if (recipe.getInputs().isEmpty()) {
-			String recipeInfo = ErrorUtil.getInfoFromBrokenRecipe(recipe, this);
-			Log.error("Recipe has no inputs. {}", recipeInfo);
+	public boolean isRecipeValid(GrinderingRecipe recipe) {
+		if(recipe.getInputs().isEmpty()){
+			String recipeInfo = ErrorUtil.getInfoFromRecipe(recipe, this);
+			Log.error("Resipe has no inputs. {}", recipeInfo);
 		}
-		if (recipe.getOutputs().isEmpty()) {
-			String recipeInfo = ErrorUtil.getInfoFromBrokenRecipe(recipe, this);
+		if(recipe.getOutputs().isEmpty()){
+			String recipeInfo = ErrorUtil.getInfoFromRecipe(recipe, this);
 			Log.error("Recipe has no outputs. {}", recipeInfo);
 		}
 		return true;
 	}
 
-}*/
+}
