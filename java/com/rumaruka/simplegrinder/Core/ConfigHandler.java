@@ -37,7 +37,10 @@ public class ConfigHandler {
 	private static  int irondusthorsearmorOutput = 0;
 	private static  int golddusthorsearmorOutput = 0;
 	private static  int omleteOutput = 0;
-
+	private static  int boneOutput = 0;
+	private static  int brickOutput = 0;
+	
+	
 	public static void startConfig(FMLPreInitializationEvent event)
 	{
 		config = new Configuration(event.getSuggestedConfigurationFile());
@@ -74,7 +77,9 @@ public class ConfigHandler {
 			irondusthorsearmorOutput = config.get(Configuration.CATEGORY_GENERAL, "IronDustHorseArmorOutput", 2, outputComment).getInt();
 			golddusthorsearmorOutput = config.get(Configuration.CATEGORY_GENERAL, "GoldDustHorseArmorOutput", 2, outputComment).getInt();
 			omleteOutput = config.get(Configuration.CATEGORY_GENERAL, "OmleteOutput", 2, outputComment).getInt();
-
+			boneOutput = config.get(Configuration.CATEGORY_GENERAL,"BoneOutput", 6, outputComment).getInt();
+			brickOutput = config.get(Configuration.CATEGORY_GENERAL,"BrickOutput",4,outputComment).getInt();		
+			
 			config.get(Configuration.CATEGORY_GENERAL, "BoneMealOutput", 5, outputComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "IronDustOutput", 3, outputComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "GoldDustOutput", 3, outputComment).getInt();
@@ -94,10 +99,12 @@ public class ConfigHandler {
 			config.get(Configuration.CATEGORY_GENERAL, "BookOutput", 2, outputComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "PrisMarineshardOutput", 2, outputComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "WoodChipsOutput", 2, outputComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "DiamondHorseArmorOutput", 2, outputComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "IronDustHorseArmorOutput", 2, outputComment).getInt();
-			config.get(Configuration.CATEGORY_GENERAL, "GoldDustHorseArmorOutput", 2, outputComment).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "DiamondHorseArmorOutput", 3, outputComment).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "IronDustHorseArmorOutput", 4, outputComment).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "GoldDustHorseArmorOutput", 4, outputComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "OmleteOutput", 2, outputComment).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "BoneOutput", 6, outputComment).getInt();
+			config.get(Configuration.CATEGORY_GENERAL, "BrickOutput", 4, outputComment).getInt();
 
 
 		} catch (Exception e) {
@@ -246,6 +253,16 @@ public class ConfigHandler {
 	{
 		return omleteOutput;
 		
+	}
+	
+	public static int getBoneOutput()
+	{
+		return boneOutput;
+	}
+	
+	public static int getBrickOutput()
+	{
+		return brickOutput;
 	}
 	
 	

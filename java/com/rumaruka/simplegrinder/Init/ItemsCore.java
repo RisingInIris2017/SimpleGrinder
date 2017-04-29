@@ -11,7 +11,9 @@ import com.rumaruka.simplegrinder.Common.items.ItemMachineCore;
 import com.rumaruka.simplegrinder.Common.items.ItemMashCarrot;
 import com.rumaruka.simplegrinder.Common.items.ItemMashPotato;
 import com.rumaruka.simplegrinder.Common.items.ItemOmlete;
+
 import com.rumaruka.simplegrinder.Common.items.ItemWoodChips;
+
 import com.rumaruka.simplegrinder.Reference.Reference;
 
 
@@ -26,6 +28,7 @@ import net.minecraft.util.text.event.ClickEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+
 
 public class ItemsCore {
 
@@ -42,6 +45,8 @@ public class ItemsCore {
 	//Fuel
 	public static Item i_fuel;
 	public static Item wood_chips;
+	//Upgrade
+
 	
 	public static void init() {
 		
@@ -59,6 +64,8 @@ public class ItemsCore {
 		//ItemBlock
 		itemmachinecore = new ItemMachineCore(BlocksCore.machine_core);
 		itemcoalgrinder = new ItemCoalGrinder(BlocksCore.coal_grinder);
+		//Upgrade
+		
 		
 	}
 	

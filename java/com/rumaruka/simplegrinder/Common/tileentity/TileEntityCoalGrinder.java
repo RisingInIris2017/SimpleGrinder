@@ -12,14 +12,13 @@ import com.rumaruka.simplegrinder.Reference.GUI;
 import com.rumaruka.simplegrinder.Reference.Reference;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ContainerFurnace;
+
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
@@ -131,7 +130,7 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
      */
     public String getName()
     {
-        return this.hasCustomName() ? this.furnaceCustomName : "container.furnace";
+        return this.hasCustomName() ? this.furnaceCustomName : "container.coal_grinder";
     }
 
     /**
@@ -273,7 +272,7 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
             if (flag != this.isBurning())
             {
                 flag1 = true;
-                BlockFurnace.setState(this.isBurning(), this.world, this.pos);
+                BlockCoalGrinder.setState(this.isBurning(), this.world, this.pos);
             }
         }
 
@@ -463,12 +462,12 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
 
     public String getGuiID()
     {
-        return "minecraft:furnace";
+        return "minecraft:coal_grinder";
     }
 
     public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)
     {
-        return new ContainerFurnace(playerInventory, this);
+        return new ContainerCoaGrinder(playerInventory, this);
     }
 
     public int getField(int id)
@@ -533,4 +532,21 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
                 return (T) handlerSide;
         return super.getCapability(capability, facing);
     }
+
+	
+/*
+	private static int getItemUpgraded(ItemStack is) {
+		if(is.isEmpty()){
+			return 0;
+		}
+		else
+		{
+			
+		}
+		return 0;
+	}
+
+	public static boolean isItemUpgraded(ItemStack stack) {
+		return getItemUpgraded(stack)>0;
+	}*/
 }
