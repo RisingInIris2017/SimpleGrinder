@@ -60,7 +60,8 @@ public class GrinderRecipes {
 	        this.addSmelting(Items.GOLDEN_HORSE_ARMOR,new ItemStack(ItemsCore.dust_gold,ConfigHandler.getGoldDustHorseArmorOutput()), 0.5F);
 	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,ConfigHandler.getOmleteOutput()), 1F);
 	        this.addSmeltingRecipe(new ItemStack(Blocks.STONE,1,0), new ItemStack(Blocks.COBBLESTONE),1F);
-	       
+	        this.addSmeltingRecipeForBlock(Blocks.BONE_BLOCK, new ItemStack(Items.BONE,ConfigHandler.getBoneOutput()), 1F);
+	        this.addSmeltingRecipeForBlock(Blocks.HARDENED_CLAY, new ItemStack(Items.BRICK,ConfigHandler.getBrickOutput()), 1F);
 	      
 	    }
 	    public void addSmeltingRecipeForBlock(Block input, ItemStack stack, float experience)

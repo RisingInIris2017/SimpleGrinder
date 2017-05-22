@@ -33,14 +33,7 @@ public class GrinderingRecipeHandler implements IRecipeHandler<GrinderingRecipe>
 
 	@Override
 	public boolean isRecipeValid(GrinderingRecipe recipe) {
-		if(recipe.getInputs().isEmpty()){
-			String recipeInfo = ErrorUtil.getInfoFromRecipe(recipe, this);
-			Log.error("Resipe has no inputs. {}", recipeInfo);
-		}
-		if(recipe.getOutputs().isEmpty()){
-			String recipeInfo = ErrorUtil.getInfoFromRecipe(recipe, this);
-			Log.error("Recipe has no outputs. {}", recipeInfo);
-		}
+		
 		return true;
 	}
 

@@ -15,3 +15,5 @@ item.dust_iron.name=Железная пыль
 item.dust_gold.name=Золотая пыль
 item.flour.name=Мука
 item.omlete.name=Омлет
+#Container
+container.coal_grinder=Угленный гриндер

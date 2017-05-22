@@ -17,20 +17,16 @@ import mezz.jei.plugins.jei.ingredients.DebugIngredientHelper;
 import mezz.jei.plugins.jei.ingredients.DebugIngredientListFactory;
 import mezz.jei.plugins.jei.ingredients.DebugIngredientRenderer;
 import mezz.jei.plugins.vanilla.brewing.BrewingRecipeCategory;
-import mezz.jei.plugins.vanilla.brewing.BrewingRecipeHandler;
+
 import mezz.jei.plugins.vanilla.brewing.BrewingRecipeMaker;
 import mezz.jei.plugins.vanilla.crafting.CraftingRecipeCategory;
-import mezz.jei.plugins.vanilla.crafting.ShapedOreRecipeHandler;
-import mezz.jei.plugins.vanilla.crafting.ShapedRecipesHandler;
-import mezz.jei.plugins.vanilla.crafting.ShapelessOreRecipeHandler;
-import mezz.jei.plugins.vanilla.crafting.ShapelessRecipesHandler;
-import mezz.jei.plugins.vanilla.crafting.TippedArrowRecipeHandler;
+
 import mezz.jei.plugins.vanilla.crafting.TippedArrowRecipeMaker;
-import mezz.jei.plugins.vanilla.furnace.FuelRecipeHandler;
+
 import mezz.jei.plugins.vanilla.furnace.FuelRecipeMaker;
 import mezz.jei.plugins.vanilla.furnace.FurnaceFuelCategory;
 import mezz.jei.plugins.vanilla.furnace.FurnaceSmeltingCategory;
-import mezz.jei.plugins.vanilla.furnace.SmeltingRecipeHandler;
+
 import mezz.jei.plugins.vanilla.furnace.SmeltingRecipeMaker;
 import net.minecraft.client.gui.inventory.GuiBrewingStand;
 import net.minecraft.client.gui.inventory.GuiCrafting;
@@ -64,13 +60,13 @@ public class SimpleGrinderPlugin extends BlankModPlugin {
 	public static IIngredientRegistry ingrReg;
 	@Nullable
 	public static IJeiRuntime jeiRun;
-	
+	/*
 	@Override
 	public void registerIngredients(IModIngredientRegistration ingredientRegistration) {
 		if (Config.isDebugModeEnabled()) {
 			ingredientRegistration.register(DebugIngredient.class, DebugIngredientListFactory.create(), new DebugIngredientHelper(), new DebugIngredientRenderer());
 		}
-	}
+	}*/
 	@Override
 	public void register(IModRegistry registry) {
 		IJeiHelpers jeiHelpers = registry.getJeiHelpers();
