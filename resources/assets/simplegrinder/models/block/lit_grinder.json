@@ -1,7 +1,9 @@
-
-{
-      "parent": "minecraft:block/furnace",
-     "textures": {
-     "front": "simplegrinder:blocks/on"
-  }
+ {
+    "parent": "block/orientable",
+    "textures": {
+        "top": "simplegrinder:blocks/top",
+        "front": "simplegrinder:blocks/on",
+        "side": "simplegrinder:blocks/side"
+    }
 }
+ 

@@ -5,12 +5,7 @@ import com.rumaruka.simplegrinder.Init.GrinderRecipes;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IContainerListener;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnaceFuel;
-import net.minecraft.inventory.SlotFurnaceOutput;
+import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.fml.relauncher.Side;
@@ -64,22 +59,22 @@ public class ContainerCoaGrinder extends Container
 
             if (this.cookTime != this.tileFurnace.getField(2))
             {
-                icontainerlistener.sendProgressBarUpdate(this, 2, this.tileFurnace.getField(2));
+                icontainerlistener.sendWindowProperty(this, 2, this.tileFurnace.getField(2));
             }
 
             if (this.furnaceBurnTime != this.tileFurnace.getField(0))
             {
-                icontainerlistener.sendProgressBarUpdate(this, 0, this.tileFurnace.getField(0));
+                icontainerlistener.sendWindowProperty(this, 0, this.tileFurnace.getField(0));
             }
 
             if (this.currentItemBurnTime != this.tileFurnace.getField(1))
             {
-                icontainerlistener.sendProgressBarUpdate(this, 1, this.tileFurnace.getField(1));
+                icontainerlistener.sendWindowProperty(this, 1, this.tileFurnace.getField(1));
             }
 
             if (this.totalCookTime != this.tileFurnace.getField(3))
             {
-                icontainerlistener.sendProgressBarUpdate(this, 3, this.tileFurnace.getField(3));
+                icontainerlistener.sendWindowProperty(this, 3, this.tileFurnace.getField(3));
             }
         }
 

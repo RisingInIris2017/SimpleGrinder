@@ -5,9 +5,12 @@ import java.util.List;
 import com.rumaruka.simplegrinder.Init.BlocksCore;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class ItemMachineCore extends ItemBlock {
 
@@ -15,9 +18,9 @@ public class ItemMachineCore extends ItemBlock {
 		super(BlocksCore.machine_core);
 		// TODO Auto-generated constructor stub
 	}
+
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+	public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> tooltip, ITooltipFlag advanced) {
 		tooltip.add("For crafting Coal Grinder");
 	}
-
 }

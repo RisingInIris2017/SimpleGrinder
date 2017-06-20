@@ -46,7 +46,7 @@ public class GrinderingRecipe extends SimpleGrinderWrapper{
 		float experience = furnaceRecipes.getSmeltingExperience(output);
 		if (experience > 0) {
 			String experienceString = Translator.translateToLocalFormatted("gui.jei.category.smelting.experience", experience);
-			FontRenderer fontRendererObj = minecraft.fontRendererObj;
+			FontRenderer fontRendererObj = minecraft.fontRenderer;
 			int stringWidth = fontRendererObj.getStringWidth(experienceString);
 			fontRendererObj.drawString(experienceString, recipeWidth - stringWidth, 0, Color.gray.getRGB());
 		}

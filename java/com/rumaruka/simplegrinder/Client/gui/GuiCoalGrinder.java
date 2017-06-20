@@ -1,5 +1,4 @@
 package com.rumaruka.simplegrinder.Client.gui;
-
 import com.rumaruka.simplegrinder.Common.containers.ContainerCoaGrinder;
 import com.rumaruka.simplegrinder.Common.tileentity.TileEntityCoalGrinder;
 import com.rumaruka.simplegrinder.Reference.Reference;
@@ -30,8 +29,8 @@ public class GuiCoalGrinder extends GuiContainer
 	    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	    {
 	        String s = this.tileGrind.getDisplayName().getUnformattedText();
-	        this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-	        this.fontRendererObj.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+	        this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
+	        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
 	    }
 
 	    /**

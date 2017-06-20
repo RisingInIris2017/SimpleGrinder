@@ -33,8 +33,8 @@ public class GrinderingRecipeHandler implements IRecipeHandler<GrinderingRecipe>
 
 	@Override
 	public boolean isRecipeValid(GrinderingRecipe recipe) {
-		
 		return true;
 	}
+
 
 }

@@ -1,15 +1,8 @@
 package com.rumaruka.simplegrinder.Common.tileentity;
 
-import javax.annotation.Nullable;
-
-import com.rumaruka.simplegrinder.Client.gui.GuiCoalGrinder;
 import com.rumaruka.simplegrinder.Common.blocks.BlockCoalGrinder;
 import com.rumaruka.simplegrinder.Common.containers.ContainerCoaGrinder;
-import com.rumaruka.simplegrinder.Core.GuiInv;
 import com.rumaruka.simplegrinder.Init.GrinderRecipes;
-import com.rumaruka.simplegrinder.Init.ItemsCore;
-import com.rumaruka.simplegrinder.Reference.GUI;
-import com.rumaruka.simplegrinder.Reference.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,9 +17,6 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemBoat;
-import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;

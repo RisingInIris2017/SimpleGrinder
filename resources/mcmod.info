@@ -2,9 +2,9 @@
 {
   "modid": "simplegrinder",
   "name": "Simple Grinder",
-  "description": "SimpleGMacerator for MC1.11",
-  "version": "3.121.R1112",
-  "mcversion": "1.11",
+  "description": "Simple Macerator for MC1.12",
+  "version": "4.012.R1112",
+  "mcversion": "1.12",
   "url": "http://minecraft.curseforge.com/projects/simple-grinder",
   "updateUrl": "http://minecraft.curseforge.com/projects/simple-grinder",
   "authorList": ["Rumaruka"],
