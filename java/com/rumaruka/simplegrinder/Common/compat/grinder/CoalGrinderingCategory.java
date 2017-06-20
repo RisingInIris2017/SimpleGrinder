@@ -14,7 +14,7 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.config.Constants;
 import mezz.jei.util.Translator;
-import net.minecraft.client.Minecraft;
+
 import net.minecraft.util.ResourceLocation;
 
 public class CoalGrinderingCategory extends GrinderingRecipeCategory<GrinderingRecipe> {
@@ -45,6 +45,11 @@ public class CoalGrinderingCategory extends GrinderingRecipeCategory<GrinderingR
 	public String getTitle() {
 		// TODO Auto-generated method stub
 		return localizedName;
+	}
+
+	@Override
+	public String getModName() {
+		return Reference.MODNAME;
 	}
 
 	@Override

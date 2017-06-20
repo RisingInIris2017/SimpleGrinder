@@ -2,14 +2,16 @@ package com.rumaruka.simplegrinder.Common.items;
 
 import java.util.List;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class ItemMashPotato extends ItemFood {
 	public final int itemUseDuration;
@@ -57,13 +59,11 @@ public class ItemMashPotato extends ItemFood {
 	            super.onFoodEaten(stack, worldIn, player);
 	        }
 	    }
-	 @Override
-		public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-			// TODO Auto-generated method stub
-			tooltip.add("Add after eating" +TextFormatting.DARK_RED+ " Strength");
-		}
 
-
+	@Override
+	public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> tooltip, ITooltipFlag advanced) {
+		tooltip.add("Add after eating" +TextFormatting.DARK_RED+ " Strength");
+	}
 }
 
 

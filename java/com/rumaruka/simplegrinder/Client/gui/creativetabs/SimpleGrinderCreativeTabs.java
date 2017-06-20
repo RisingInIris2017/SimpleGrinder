@@ -15,7 +15,7 @@ public class SimpleGrinderCreativeTabs extends CreativeTabs{
 	
 	public SimpleGrinderCreativeTabs() {
 		super(Reference.MODID);
-		setNoTitle();
+		
 	}
 
 	@Override

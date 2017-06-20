@@ -6,7 +6,6 @@ import com.rumaruka.simplegrinder.Common.tileentity.TileEntityCoalGrinder;
 import com.rumaruka.simplegrinder.Reference.GUI;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
