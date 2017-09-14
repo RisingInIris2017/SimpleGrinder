@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
+import com.rumaruka.simplegrinder.Crafting.GrinderHandler;
 import com.rumaruka.simplegrinder.Init.GrinderRecipes;
 
 import mezz.jei.api.IJeiHelpers;
@@ -18,7 +19,7 @@ import net.minecraft.item.ItemStack;
 public class GrinderingRecipeMaker {
 	public static List<GrinderingRecipe> getFurnaceRecipes(IJeiHelpers helpers) {
 		IStackHelper stackHelper = helpers.getStackHelper();
-		GrinderRecipes furnaceRecipes = GrinderRecipes.instance();
+		GrinderHandler furnaceRecipes = GrinderHandler.instance();
 		Map<ItemStack, ItemStack> smeltingMap = furnaceRecipes.getSmeltingList();
 
 		List<GrinderingRecipe> recipes = new ArrayList<GrinderingRecipe>();

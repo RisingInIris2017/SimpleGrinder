@@ -1,5 +1,6 @@
 package com.rumaruka.simplegrinder.Common.compat;
 
+import com.rumaruka.simplegrinder.Init.ItemsCore;
 import mezz.jei.api.BlankModPlugin;
 import mezz.jei.api.IGuiHelper;
 
@@ -27,6 +28,7 @@ import com.rumaruka.simplegrinder.Common.compat.grinder.CoalGrinderingCategory;
 import com.rumaruka.simplegrinder.Common.compat.grinder.GrinderingRecipeHandler;
 import com.rumaruka.simplegrinder.Common.compat.grinder.GrinderingRecipeMaker;
 import com.rumaruka.simplegrinder.Init.BlocksCore;
+import net.minecraft.item.ItemStack;
 
 @JEIPlugin
 public class SimpleGrinderPlugin extends BlankModPlugin {
@@ -59,8 +61,9 @@ public class SimpleGrinderPlugin extends BlankModPlugin {
 		registry.addRecipeClickArea(GuiCoalGrinder.class, 78, 32, 28, 23, SimpleGrinderRecipeUID.GRINDER_UID, VanillaRecipeCategoryUid.FUEL);
 
 		
-
+		registry.addDescription(new ItemStack(ItemsCore.i_fuel), "Very Powerful Fuel");
 		registry.addRecipes(GrinderingRecipeMaker.getFurnaceRecipes(jeiHelpers));
-	
+		jeiHelpers.getItemBlacklist().addItemToBlacklist(new ItemStack(BlocksCore.lit_grinder));
+
 	}
 }

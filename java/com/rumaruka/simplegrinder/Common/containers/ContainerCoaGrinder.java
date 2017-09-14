@@ -1,6 +1,7 @@
 package com.rumaruka.simplegrinder.Common.containers;
 
 import com.rumaruka.simplegrinder.Common.tileentity.TileEntityCoalGrinder;
+import com.rumaruka.simplegrinder.Crafting.GrinderHandler;
 import com.rumaruka.simplegrinder.Init.GrinderRecipes;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -122,7 +123,7 @@ public class ContainerCoaGrinder extends Container
             }
             else if (index != 1 && index != 0)
             {
-                if (!GrinderRecipes.instance().getSmeltingResult(itemstack1).isEmpty())
+                if (!GrinderHandler.instance().getResult(itemstack1).isEmpty())
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {
