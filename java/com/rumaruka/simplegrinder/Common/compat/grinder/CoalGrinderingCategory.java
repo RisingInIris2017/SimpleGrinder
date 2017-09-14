@@ -57,11 +57,8 @@ public class CoalGrinderingCategory extends GrinderingRecipeCategory<GrinderingR
 		// TODO Auto-generated method stub
 		return background;
 	}
-	/*@Nullable
-	@Override
-	public IDrawable getIcon() {
-		return icon;
-	}*/
+	@Nullable
+
 
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, GrinderingRecipe recipeWrapper, IIngredients ingredients) {

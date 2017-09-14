@@ -8,6 +8,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.rumaruka.simplegrinder.Common.compat.SimpleGrinderWrapper;
+import com.rumaruka.simplegrinder.Crafting.GrinderHandler;
 import com.rumaruka.simplegrinder.Init.GrinderRecipes;
 
 import mezz.jei.api.ingredients.IIngredients;
@@ -42,8 +43,8 @@ public class GrinderingRecipe extends SimpleGrinderWrapper{
 
 	@Override
 	public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-		GrinderRecipes furnaceRecipes = GrinderRecipes.instance();
-		float experience = furnaceRecipes.getSmeltingExperience(output);
+		GrinderHandler furnaceRecipes = GrinderHandler.instance();
+		float experience = furnaceRecipes.getExperience(output);
 		if (experience > 0) {
 			String experienceString = Translator.translateToLocalFormatted("gui.jei.category.smelting.experience", experience);
 			FontRenderer fontRendererObj = minecraft.fontRenderer;

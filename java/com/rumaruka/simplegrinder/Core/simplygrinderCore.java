@@ -1,11 +1,13 @@
 package com.rumaruka.simplegrinder.Core;
 
-import com.rumaruka.simplegrinder.Common.OreDict.OreDict;
+import com.rumaruka.simplegrinder.Common.OreDict.OreDictMain;
 
 
 import com.rumaruka.simplegrinder.Init.*;
 import com.rumaruka.simplegrinder.Proxy.CommonProxy;
 import com.rumaruka.simplegrinder.Reference.Reference;
+
+import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -29,6 +31,7 @@ public class simplygrinderCore {
         // Blocks
         BlocksCore.init();
         BlocksCore.InGameRegister();
+
         // TileEntity
         TileEntityCore.InGameRegist();
         // Items
@@ -37,6 +40,7 @@ public class simplygrinderCore {
         // EventHandler
         EventRegister.RegisetHandlers();
         // Crafting
+        proxy.preInit(e);
         CraftingCore.loadCraft();
         // Smelting
         FurnaceSmelting.Smelting();
@@ -48,7 +52,7 @@ public class simplygrinderCore {
         //Load Fuel
         GameRegistry.registerFuelHandler(new ModFuelsHandler());
         //Load Ore Dict
-        OreDict.registerOre();
+        OreDictMain.registerOre();
 
     }
 
@@ -60,7 +64,7 @@ public class simplygrinderCore {
 
     @Mod.EventHandler
     public void PostInit(FMLPostInitializationEvent e) {
-
+            proxy.postInit(e);
     }
 
 }

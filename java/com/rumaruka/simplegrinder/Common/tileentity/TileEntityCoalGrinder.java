@@ -2,6 +2,7 @@ package com.rumaruka.simplegrinder.Common.tileentity;
 
 import com.rumaruka.simplegrinder.Common.blocks.BlockCoalGrinder;
 import com.rumaruka.simplegrinder.Common.containers.ContainerCoaGrinder;
+import com.rumaruka.simplegrinder.Crafting.GrinderHandler;
 import com.rumaruka.simplegrinder.Init.GrinderRecipes;
 
 import net.minecraft.block.Block;
@@ -288,7 +289,7 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
         }
         else
         {
-            ItemStack itemstack = GrinderRecipes.instance().getSmeltingResult((ItemStack)this.furnaceItemStacks.get(0));
+            ItemStack itemstack = GrinderHandler.instance().getResult((ItemStack)this.furnaceItemStacks.get(0));
 
             if (itemstack.isEmpty())
             {
@@ -313,7 +314,7 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
         if (this.canSmelt())
         {
             ItemStack itemstack = (ItemStack)this.furnaceItemStacks.get(0);
-            ItemStack itemstack1 = GrinderRecipes.instance().getSmeltingResult(itemstack);
+            ItemStack itemstack1 = GrinderHandler.instance().getResult(itemstack);
             ItemStack itemstack2 = (ItemStack)this.furnaceItemStacks.get(2);
 
             if (itemstack2.isEmpty())
@@ -523,20 +524,5 @@ public class TileEntityCoalGrinder extends TileEntityLockable implements ITickab
         return super.getCapability(capability, facing);
     }
 
-	
-/*
-	private static int getItemUpgraded(ItemStack is) {
-		if(is.isEmpty()){
-			return 0;
-		}
-		else
-		{
-			
-		}
-		return 0;
-	}
 
-	public static boolean isItemUpgraded(ItemStack stack) {
-		return getItemUpgraded(stack)>0;
-	}*/
 }

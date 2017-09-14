@@ -78,8 +78,8 @@ public class ConfigHandler {
 			golddusthorsearmorOutput = config.get(Configuration.CATEGORY_GENERAL, "GoldDustHorseArmorOutput", 2, outputComment).getInt();
 			omleteOutput = config.get(Configuration.CATEGORY_GENERAL, "OmleteOutput", 2, outputComment).getInt();
 			boneOutput = config.get(Configuration.CATEGORY_GENERAL,"BoneOutput", 6, outputComment).getInt();
-			brickOutput = config.get(Configuration.CATEGORY_GENERAL,"BrickOutput",4,outputComment).getInt();		
-			
+			brickOutput = config.get(Configuration.CATEGORY_GENERAL,"BrickOutput",4,outputComment).getInt();
+
 			config.get(Configuration.CATEGORY_GENERAL, "BoneMealOutput", 5, outputComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "IronDustOutput", 3, outputComment).getInt();
 			config.get(Configuration.CATEGORY_GENERAL, "GoldDustOutput", 3, outputComment).getInt();

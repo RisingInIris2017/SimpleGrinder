@@ -1,128 +1,141 @@
 package com.rumaruka.simplegrinder.Init;
 
-import com.rumaruka.simplegrinder.Core.ConfigHandler;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import java.util.Map;
-import java.util.Map.Entry;
+import com.rumaruka.simplegrinder.Common.containers.ContainerNull;
+import com.rumaruka.simplegrinder.Core.ModConfig;
+import com.rumaruka.simplegrinder.Crafting.GrinderHandler;
+import org.apache.commons.lang3.StringUtils;
 
-import com.google.common.collect.Maps;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.EnumDyeColor;
+import com.google.common.collect.Lists;
+
+
+import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class GrinderRecipes {
+	String inputItem, outputItem;
+	float experience;
 
-	  private static final GrinderRecipes smeltingBase = new GrinderRecipes();
-	    private Map<ItemStack, ItemStack> smeltingList = Maps.<ItemStack, ItemStack>newHashMap();
-	    private Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
-
-	    /**
-	     * Returns an instance of FurnaceRecipes.
-	     */
-	    public static GrinderRecipes instance()
-	    {
-	        return smeltingBase;
-	    }
-
-	    public GrinderRecipes()
-	    {
-	    	this.addSmelting(Items.BONE, new ItemStack(Items.DYE, ConfigHandler.getBoneMealOutput(), EnumDyeColor.WHITE.getDyeDamage()), 0.2F);
-	        this.addSmeltingRecipeForBlock(Blocks.IRON_ORE, new ItemStack(ItemsCore.dust_iron,ConfigHandler.getIronDustOutput()), 0.7F);
-	        this.addSmeltingRecipeForBlock(Blocks.GOLD_ORE, new ItemStack(ItemsCore.dust_gold,ConfigHandler.getGoldDustOutput()), 1.0F);
-	        this.addSmeltingRecipeForBlock(Blocks.DIAMOND_ORE, new ItemStack(Items.DIAMOND,ConfigHandler.getDiamondOutput()), 1.0F);
-	        this.addSmeltingRecipeForBlock(Blocks.COBBLESTONE, new ItemStack(Blocks.SAND,ConfigHandler.getCobbleSandOutput()), 0.1F);
-	        this.addSmeltingRecipeForBlock(Blocks.CACTUS, new ItemStack(Items.DYE, ConfigHandler.getCactusGreenOutput(), EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
-	        this.addSmeltingRecipeForBlock(Blocks.EMERALD_ORE, new ItemStack(Items.EMERALD,ConfigHandler.getEmeraldOutput()), 1.0F);
-	        this.addSmelting(Items.POTATO, new ItemStack(ItemsCore.mash_potato,ConfigHandler.getMashedPotatoOutput()), 0.35F);
-	        this.addSmeltingRecipeForBlock(Blocks.COAL_ORE, new ItemStack(Items.COAL,ConfigHandler.getCoalOutput()), 0.1F);
-	        this.addSmeltingRecipeForBlock(Blocks.REDSTONE_ORE, new ItemStack(Items.REDSTONE,ConfigHandler.getRedStoneOutput()), 0.7F);
-	        this.addSmeltingRecipeForBlock(Blocks.LAPIS_ORE, new ItemStack(Items.DYE, ConfigHandler.getLapisOutput(), EnumDyeColor.BLUE.getDyeDamage()), 0.2F);
-	        this.addSmeltingRecipeForBlock(Blocks.QUARTZ_ORE, new ItemStack(Items.QUARTZ,ConfigHandler.getQuartzOutput()), 0.2F);
-	        this.addSmelting(Items.WHEAT,new ItemStack(ItemsCore.flour,ConfigHandler.getFlourOutput()), 0.5F);
-	        this.addSmelting(Items.CARROT, new ItemStack(ItemsCore.mash_carrot,ConfigHandler.getMashedCarrotOutput()), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.SANDSTONE, new ItemStack(Blocks.SAND,ConfigHandler.getSandstoneSandOutput()), 0.6F);
-	        this.addSmeltingRecipeForBlock(Blocks.GRAVEL, new ItemStack(Items.FLINT,ConfigHandler.getFlintOutput()), 0.6F);
-	        this.addSmeltingRecipeForBlock(Blocks.BOOKSHELF, new ItemStack(Items.BOOK,ConfigHandler.getBookOutput()), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.PRISMARINE, new ItemStack(Items.PRISMARINE_SHARD,ConfigHandler.getPrisMarineShardOutput()), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.LOG, new ItemStack(ItemsCore.wood_chips,ConfigHandler.getWoodChipsOutput()), 0.5F);
-	        this.addSmeltingRecipeForBlock(Blocks.LOG2, new ItemStack(ItemsCore.wood_chips,ConfigHandler.getWoodChipsOutput()), 0.5F);
-	        this.addSmelting(Items.DIAMOND_HORSE_ARMOR,new ItemStack(Items.DIAMOND,ConfigHandler.getDiamondHorseArmorOutput()), 0.5F);
-	        this.addSmelting(Items.IRON_HORSE_ARMOR,new ItemStack(ItemsCore.dust_iron,ConfigHandler.getIronDustHorseArmorOutput()), 0.5F);
-	        this.addSmelting(Items.GOLDEN_HORSE_ARMOR,new ItemStack(ItemsCore.dust_gold,ConfigHandler.getGoldDustHorseArmorOutput()), 0.5F);
-	        this.addSmelting(Items.EGG,new ItemStack(ItemsCore.omlete,ConfigHandler.getOmleteOutput()), 1F);
-	        this.addSmeltingRecipe(new ItemStack(Blocks.STONE,1,0), new ItemStack(Blocks.COBBLESTONE),1F);
-	        this.addSmeltingRecipeForBlock(Blocks.BONE_BLOCK, new ItemStack(Items.BONE,ConfigHandler.getBoneOutput()), 1F);
-	        this.addSmeltingRecipeForBlock(Blocks.HARDENED_CLAY, new ItemStack(Items.BRICK,ConfigHandler.getBrickOutput()), 1F);
-	      
-	    }
-	    public void addSmeltingRecipeForBlock(Block input, ItemStack stack, float experience)
-	    {
-	        this.addSmelting(Item.getItemFromBlock(input), stack, experience);
-	    }
-
-	    /**
-	     * Adds a smelting recipe using an Item as the input item.
-	     */
-	    public void addSmelting(Item input, ItemStack stack, float experience)
-	    {
-	        this.addSmeltingRecipe(new ItemStack(input, 1, 32767), stack, experience);
-	    }
-
-	    /**
-	     * Adds a smelting recipe using an ItemStack as the input for the recipe.
-	     */
-	    public void addSmeltingRecipe(ItemStack input, ItemStack stack, float experience)
-	    {
-	        if (getSmeltingResult(input) != ItemStack.EMPTY) { net.minecraftforge.fml.common.FMLLog.info("Ignored smelting recipe with conflicting input: " + input + " = " + stack); return; }
-	        this.smeltingList.put(input, stack);
-	        this.experienceList.put(stack, Float.valueOf(experience));
-	    }
-
-	    /**
-	     * Returns the smelting result of an item.
-	     */
-	    public ItemStack getSmeltingResult(ItemStack stack)
-	    {
-	        for (Entry<ItemStack, ItemStack> entry : this.smeltingList.entrySet())
-	        {
-	            if (this.compareItemStacks(stack, (ItemStack)entry.getKey()))
-	            {
-	                return (ItemStack)entry.getValue();
-	            }
-	        }
-
-	        return ItemStack.EMPTY;
-	    }
-
-	    /**
-	     * Compares two itemstacks to ensure that they are the same. This checks both the item and the metadata of the item.
-	     */
-	    private boolean compareItemStacks(ItemStack stack1, ItemStack stack2)
-	    {
-	        return stack2.getItem() == stack1.getItem() && (stack2.getMetadata() == 32767 || stack2.getMetadata() == stack1.getMetadata());
-	    }
-
-	    public Map<ItemStack, ItemStack> getSmeltingList()
-	    {
-	        return this.smeltingList;
-	    }
-
-	    public float getSmeltingExperience(ItemStack stack)
-	    {
-	        float ret = stack.getItem().getSmeltingExperience(stack);
-	        if (ret != -1) return ret;
-
-	        for (Entry<ItemStack, Float> entry : this.experienceList.entrySet())
-	        {
-	            if (this.compareItemStacks(stack, (ItemStack)entry.getKey()))
-	            {
-	                return ((Float)entry.getValue()).floatValue();
-	            }
-	        }
-
-	        return 1.0F;
-	    }
+	public GrinderRecipes(String in, String out, float exp) {
+		super();
+		this.inputItem = in;
+		this.outputItem = out;
+		this.experience = exp;
 	}
+
+	public void register() {
+		List<ItemStack> inl = string2Stacks(inputItem);
+		List<ItemStack> outl = string2Stacks(outputItem);
+		if (outl.isEmpty())
+			return;
+		outl.forEach(s -> s.setItemDamage(s.getItemDamage() == OreDictionary.WILDCARD_VALUE ? 0 : s.getItemDamage()));
+		for (ItemStack in : inl)
+			//			for (ItemStack out : outl)
+			GrinderHandler.instance().addItemStack(in, outl.get(0), experience);
+	}
+
+	private static List<ItemStack> string2Stacks(String s) {
+		int size = parse(s, '#', 1), meta = parse(s, '/', 0);
+		int first = s.length();
+		for (int i = 0; i < s.length(); i++)
+			if (s.charAt(i) == '#' || s.charAt(i) == '/') {
+				first = i;
+				break;
+			}
+		String itemName = s.substring(0, first);
+		Item item = null;
+		if (StringUtils.countMatches(itemName, ":") == 1 && (item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName))) != null)
+			return Collections.singletonList(new ItemStack(item, size, meta));
+		else if (StringUtils.countMatches(s, ":") == 0)
+			return OreDictionary.getOres(itemName).stream().map(stack -> ItemHandlerHelper.copyStackWithSize(stack, size)).collect(Collectors.toList());
+		else
+			throw new RuntimeException("Invalid grinder Recipes: " + s);
+	}
+
+	private static int parse(String s, char c, int defaultVal) {
+		int in = s.indexOf(c);
+		if (in != -1) {
+			for (int i = Math.min(in + 4, s.length()); i >= in; i--) {
+				String k = s.substring(in + 1, i);
+				try {
+					return Integer.parseInt(k);
+				} catch (NumberFormatException e) {
+				}
+			}
+		}
+		return defaultVal;
+	}
+
+	public static List<GrinderRecipes> getDefaultRecipes() {
+		List<GrinderRecipes> lis = Lists.newArrayList();
+		lis.add(new GrinderRecipes("cobblestone", "gravel", .1f));
+		lis.add(new GrinderRecipes("gravel", "sand", .1f));
+		lis.add(new GrinderRecipes("stone", "cobblestone", .1f));
+		lis.add(new GrinderRecipes("minecraft:sandstone/-1", "minecraft:sand#4", .1f));
+		lis.add(new GrinderRecipes("minecraft:stonebrick/-1", "cobblestone", .1f));
+		lis.add(new GrinderRecipes("oreQuartz", "gemQuartz#3", .3f));
+		lis.add(new GrinderRecipes("oreCoal", "minecraft:coal#3", .3f));
+		lis.add(new GrinderRecipes("oreLapis", "gemLapis#8", .3f));
+		lis.add(new GrinderRecipes("oreRedstone", "dustRedstone#8", .3f));
+		lis.add(new GrinderRecipes("minecraft:quartz_block/-1", "gemQuartz#4", .1f));
+		lis.add(new GrinderRecipes("glowstone", "dustGlowstone#4", .1f));
+		lis.add(new GrinderRecipes("minecraft:blaze_rod", "minecraft:blaze_powder#4", .4f));
+		lis.add(new GrinderRecipes("minecraft:bone", "minecraft:dye/15#6", .1f));
+		lis.add(new GrinderRecipes("minecraft:wool/-1", "minecraft:string/0#4", .1f));
+		lis.add(new GrinderRecipes("sugarcane", "minecraft:sugar#3", .2f));
+		lis.add(new GrinderRecipes("logWood","logChips#4",.2f));
+		lis.add(new GrinderRecipes("cropWheat","flour#2",.2f));
+		lis.add(new GrinderRecipes("cropPotato","mashPotato#2",.2f));
+		lis.add(new GrinderRecipes("cropCarrot","mashCarrot#2",.2f));
+		lis.add(new GrinderRecipes("cropCarrot","mashCarrot#2",.2f));
+		lis.add(new GrinderRecipes("egg", "omlete#2",0.3f));
+		return lis;
+	}
+
+	public static void registerDefaultOreRecipes() {
+		for (String ore : OreDictionary.getOreNames()) {
+			add(ore, "ore", "dust", 3, .5f);
+			add(ore, "ore", "gem", 15, .5f);
+			add(ore, "ingot", "dust", 1, .1f);
+		}
+		for (Item item : ForgeRegistries.ITEMS) {
+			if (item.getRegistryName().getResourcePath().contains("flower")) {
+				for (int i = 0; i < 16; i++) {
+					ItemStack s = new ItemStack(item, 1, i);
+					InventoryCrafting ic = new InventoryCrafting(new ContainerNull(), 3, 3);
+					ic.setInventorySlotContents(0, s);
+					ItemStack result = ItemStack.EMPTY;
+					try {
+						result = CraftingManager.findMatchingResult(ic, null);
+					} catch (Exception e) {
+					}
+					if (!result.isEmpty() && result.getCount() == 1) {
+						GrinderHandler.instance().addItemStack(s, ItemHandlerHelper.copyStackWithSize(result, 3), .1f);
+					}
+					if (!item.getHasSubtypes())
+						break;
+				}
+			}
+		}
+	}
+
+	private static void add(String ore, String in, String out, int amount, float exp) {
+		List<String> blacks = Lists.newArrayList(ModConfig.blacklistDusts);
+		if (ore.length() <= in.length())
+			return;
+		String mat = ore.substring(in.length());
+		List<ItemStack> outs = OreDictionary.getOres(out + mat);
+		if (ore.startsWith(in) && !outs.isEmpty() && !blacks.contains(out + mat))
+			for (ItemStack stack : OreDictionary.getOres(ore))
+				GrinderHandler.instance().addItemStack(stack, ItemHandlerHelper.copyStackWithSize(outs.get(0), amount), exp);
+	}
+}
