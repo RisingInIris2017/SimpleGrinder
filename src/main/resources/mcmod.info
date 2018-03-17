@@ -1,0 +1,16 @@
+[
+{
+  "modid": "simplegrinder",
+  "name": "Simple Grinder",
+  "description": "Simple Macerator for MC1.12.2",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://minecraft.curseforge.com/projects/simple-grinder",
+  "updateUrl": "http://minecraft.curseforge.com/projects/simple-grinder",
+  "authorList": ["Rumaruka"],
+  "credits": "Thank you: Forge Team, LZG",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
