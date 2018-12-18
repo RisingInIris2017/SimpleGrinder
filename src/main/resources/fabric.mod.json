@@ -1,0 +1,10 @@
+{
+  "id": "simplegrinder",
+  "name": "Simple Grinder",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "version": "1.0.0",
+  "side": "universal",
+  "initializer": "net.simplegrinder.SimpleGrinderMod"
+
+
+}

@@ -1,80 +1,22 @@
-
-buildscript {
-    repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
+plugins {
+	id 'fabric-loom' version '0.1.0-SNAPSHOT'
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 
-
-
-version = "1.144.R1122fix"
-group = "com.rumaruka.simplegrinder" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "SimpleGrinder"
-
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
+archivesBaseName = "simplegrinder"
+version = "1.0.0"
 
 minecraft {
-    version = "1.12.2-14.23.2.2627"
-    runDir = "run"
-    
-    // the mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   snapshot are built nightly.
-    // stable_#            stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20171003"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    replace "@VERSION@", project.version
-    replaceIn "SimpleGrinder.jar"
 }
-repositories {
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "http://dvs1.progwml6.com/files/maven"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "modmaven.k-4u.nl"
-    }
-}
+
 dependencies {
-    compile "mezz.jei:jei_1.12.2:4.8.5.159"
+	minecraft "com.mojang:minecraft:18w50a"
+	mappings "net.fabricmc:yarn:18w50a.2"
+	modCompile "net.fabricmc:fabric-loader:0.2.0.64"
 
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	modCompile "net.fabricmc:fabric:0.1.1.47"
 }
-
-processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
-}
-
-
-
-
-
-

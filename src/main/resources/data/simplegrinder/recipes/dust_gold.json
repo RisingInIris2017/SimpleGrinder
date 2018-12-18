@@ -1,0 +1,9 @@
+{
+  "type": "grinder",
+  "ingredient": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": "simplegrinder:dust_gold",
+  "experience": 0.3,
+  "cookingtime": 200
+}
