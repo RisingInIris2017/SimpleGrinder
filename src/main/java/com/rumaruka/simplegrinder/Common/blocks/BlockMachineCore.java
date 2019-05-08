@@ -1,35 +1,21 @@
-package com.rumaruka.simplegrinder.Common.blocks;
+package com.rumaruka.simplegrinder.common.blocks;
 
-import java.util.Random;
-
-import com.rumaruka.simplegrinder.Init.BlocksCore;
-
+import com.rumaruka.simplegrinder.SimpleGrinder;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 
 public class BlockMachineCore extends Block {
 
-	public BlockMachineCore( ) {
-		super(Material.ROCK);
-		setHarvestLevel("pickaxe", 0);
-		setHardness(2.3F);
-	}
-	 public Item getItemDropped(IBlockState state, Random rand, int fortune)
-	    {
-	        return Item.getItemFromBlock(BlocksCore.machine_core);
-	    }
+    public static final DirectionProperty FACING = BlockHorizontal.HORIZONTAL_FACING;
 
-	@Override
-	public boolean isOpaqueCube(IBlockState state)
-	{
-		return false;
-	}
-	
-	@Override
-	public boolean isFullCube(IBlockState state)
-	{
-		return false;
-	}
+
+    public static final ResourceLocation MACHINE_CORE = new ResourceLocation(SimpleGrinder.MODID, "machine_core");
+    public BlockMachineCore( ) {
+        super(Properties.create(Material.IRON));
+        setRegistryName(MACHINE_CORE);
+    }
 }
