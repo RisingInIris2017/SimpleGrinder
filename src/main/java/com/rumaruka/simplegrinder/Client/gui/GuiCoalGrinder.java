@@ -4,6 +4,7 @@ import com.rumaruka.simplegrinder.SimpleGrinder;
 import com.rumaruka.simplegrinder.client.gui.component.BurnComponent;
 import com.rumaruka.simplegrinder.common.inventory.ContainerCoalGrinder;
 import com.rumaruka.simplegrinder.common.tile.TileEntityCoalGrinder;
+import net.minecraft.client.gui.inventory.GuiFurnace;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.IInventory;
@@ -60,10 +61,12 @@ public class GuiCoalGrinder extends GuiCommonScreen {
         super.onGuiClosed();
     }
 
+
     private int getCookProgressScaled(int pixels) {
         int i = this.tileInventory.getField(2);
         int j = this.tileInventory.getField(3);
         return j != 0 && i != 0 ? i * pixels / j : 0;
     }
+
 
 }

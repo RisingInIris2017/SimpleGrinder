@@ -1,0 +1,11 @@
+{
+  "type": "simplegrinder:grinder",
+  "group": "minecraft:book",
+  "ingredient": {
+    "item": "minecraft:gravel"
+  },
+  "result": "minecraft:book",
+  "count": 2,
+  "cookingtime": 150
+
+}

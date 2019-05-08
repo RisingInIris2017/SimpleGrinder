@@ -1,0 +1,11 @@
+{
+  "type": "simplegrinder:grinder",
+  "group": "minecraft:lapis_lazuli",
+  "ingredient": {
+    "item": "minecraft:lapis_ore"
+  },
+  "result": "minecraft:lapis_lazuli",
+  "count": 15,
+  "cookingtime": 150
+
+}
