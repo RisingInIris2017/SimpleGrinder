@@ -1,17 +1,12 @@
-
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "simplegrinder:coal_grinder"
-  },
   "variants": {
-    "normal": [{}],
-    "inventory": [{}],
-    "facing": {
-      "north": {},
-      "south": {"y": 180},
-      "west": {"y": 270},
-      "east": {"y": 90}
-    }
+    "facing=north,lit=false": { "model": "simplegrinder:block/coal_grinder" },
+    "facing=south,lit=false": { "model": "simplegrinder:block/coal_grinder", "y": 180 },
+    "facing=west,lit=false":  { "model": "simplegrinder:block/coal_grinder", "y": 270 },
+    "facing=east,lit=false":  { "model": "simplegrinder:block/coal_grinder", "y": 90 },
+    "facing=north,lit=true": { "model": "simplegrinder:block/lit_grinder" },
+    "facing=south,lit=true": { "model": "simplegrinder:block/lit_grinder", "y": 180 },
+    "facing=west,lit=true":  { "model": "simplegrinder:block/lit_grinder", "y": 270 },
+    "facing=east,lit=true":  { "model": "simplegrinder:block/lit_grinder", "y": 90 }
   }
 }

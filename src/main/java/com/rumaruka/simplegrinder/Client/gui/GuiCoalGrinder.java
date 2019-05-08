@@ -1,75 +1,69 @@
-package com.rumaruka.simplegrinder.Client.gui;
-import com.rumaruka.simplegrinder.Common.containers.ContainerCoaGrinder;
-import com.rumaruka.simplegrinder.Common.tileentity.TileEntityCoalGrinder;
-import com.rumaruka.simplegrinder.Reference.Reference;
+package com.rumaruka.simplegrinder.client.gui;
 
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.renderer.GlStateManager;
+import com.rumaruka.simplegrinder.SimpleGrinder;
+import com.rumaruka.simplegrinder.client.gui.component.BurnComponent;
+import com.rumaruka.simplegrinder.common.inventory.ContainerCoalGrinder;
+import com.rumaruka.simplegrinder.common.tile.TileEntityCoalGrinder;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiCoalGrinder extends GuiContainer
-{
-	
-		private static final ResourceLocation grindGuiTextures = new ResourceLocation(Reference.MODID,"textures/gui/container/grind.png");
-    	private final InventoryPlayer playerInventory;
-	    private final IInventory tileGrind;
+public class GuiCoalGrinder extends GuiCommonScreen {
 
-	    public GuiCoalGrinder(InventoryPlayer playerInv, IInventory grindInv)
-	    {
-	        super(new ContainerCoaGrinder(playerInv, grindInv));
-	        this.playerInventory = playerInv;
-	        this.tileGrind = grindInv;
-	    }
+    private static final ResourceLocation FURNACE_GUI_TEXTURES = new ResourceLocation(SimpleGrinder.MODID,"textures/gui/container/machines/grind.png");
+    public GuiCoalGrinder(InventoryPlayer inventoryPlayer, IInventory inventory) {
+        super(new ContainerCoalGrinder(inventoryPlayer,inventory),inventoryPlayer,inventory);
+    }
 
-	    /**
-	     * Draw the foreground layer for the GuiContainer (everything in front of the items)
-	     */
-	    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
-	    {
-	        String s = this.tileGrind.getDisplayName().getUnformattedText();
-	        this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
-	        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
-	    }
+    @Override
+    protected void initGui() {
+        super.initGui();
+        addComponent(new BurnComponent(0,guiLeft + 56, guiTop + 36 + 12));
+    }
 
-	    /**
-	     * Draws the background layer of this container (behind the items).
-	     */
-	    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
-	    {
-	        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-	        this.mc.getTextureManager().bindTexture(grindGuiTextures);
-	        int i = (this.width - this.xSize) / 2;
-	        int j = (this.height - this.ySize) / 2;
-	        this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
+    @Override
+    public void tick() {
+        super.tick();
+    }
+    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+        //GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+        this.mc.getTextureManager().bindTexture(FURNACE_GUI_TEXTURES);
+        int i = this.guiLeft;
+        int j = this.guiTop;
+        this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
 
-	        if (TileEntityCoalGrinder.isBurning(this.tileGrind))
-	        {
-	            int k = this.getBurnLeftScaled(13);
-	            this.drawTexturedModalRect(i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
-	        }
+        int cookProgressScaled = this.getCookProgressScaled(17);
+        this.drawTexturedModalRect(i + 79, j + 34+1, 176, 0, 24, cookProgressScaled);
 
-	        int l = this.getCookProgressScaled(24);
-	        this.drawTexturedModalRect(i + 79, j + 34, 176, 14, l + 1, 16);
-	    }
+        boolean isBurning = TileEntityCoalGrinder.isBurning(this.tileInventory);
+        int burnTime = tileInventory.getField(0);
+        int currentItemBurnTime = tileInventory.getField(1);
 
-	    private int getCookProgressScaled(int pixels)
-	    {
-	        int i = this.tileGrind.getField(2);
-	        int j = this.tileGrind.getField(3);
-	        return j != 0 && i != 0 ? i * pixels / j : 0;
-	    }
+        ((BurnComponent)getComponent(0)).update(isBurning,burnTime,currentItemBurnTime);
 
-	    private int getBurnLeftScaled(int pixels)
-	    {
-	        int i = this.tileGrind.getField(1);
+        super.drawGuiContainerBackgroundLayer(partialTicks,mouseX,mouseY);
+    }
 
-	        if (i == 0)
-	        {
-	            i = 200;
-	        }
+    /**
+     * Called when the mouse is clicked over a slot or outside the gui.
+     */
+    protected void handleMouseClick(Slot slotIn, int slotId, int mouseButton, ClickType type) {
+        super.handleMouseClick(slotIn, slotId, mouseButton, type);
+    }
 
-	        return this.tileGrind.getField(0) * pixels / i;
-	    }
-	}
+    /**
+     * Called when the screen is unloaded. Used to disable keyboard repeat events
+     */
+    public void onGuiClosed() {
+        super.onGuiClosed();
+    }
+
+    private int getCookProgressScaled(int pixels) {
+        int i = this.tileInventory.getField(2);
+        int j = this.tileInventory.getField(3);
+        return j != 0 && i != 0 ? i * pixels / j : 0;
+    }
+
+}
