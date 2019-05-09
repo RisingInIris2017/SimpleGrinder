@@ -1,0 +1,11 @@
+{
+  "type": "simplegrinder:grinder",
+  "group": "minecraft:prismarine_shard",
+  "ingredient": {
+    "item": "minecraft:prismarine"
+  },
+  "result": "minecraft:prismarine_shard",
+  "count": 5,
+  "cookingtime": 150
+
+}

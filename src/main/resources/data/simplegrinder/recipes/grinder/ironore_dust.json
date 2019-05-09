@@ -1,0 +1,11 @@
+{
+  "type": "simplegrinder:grinder",
+  "group": "simplegrinder:dust_iron",
+  "ingredient": {
+    "item": "minecraft:iron_ore"
+  },
+  "result": "simplegrinder:dust_iron",
+  "count": 3,
+  "cookingtime": 150
+
+}

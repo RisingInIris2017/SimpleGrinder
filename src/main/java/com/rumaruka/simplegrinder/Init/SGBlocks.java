@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 public class SGBlocks {
 
-    //TilEntity
+    //TileEntity
     public static TileEntityType<?> TYPE_COAL_GRINDER;
     @ObjectHolder("simplegrinder:machine_core")
     public static BlockMachineCore blockMachineCore;
